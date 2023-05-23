@@ -6,22 +6,19 @@ package mjearlb.game;
 public class Character {
 
     private int id;
-    private boolean player;
+    private boolean isPlayer;
     private String name;
 
     /**
      * Creates the character object.
-     *
-     * @param player is {@code true} if the character being created is
-     * a player, false if it is an NPC.
-     * @param name the name of the character.
-     * @param id the id of the character.
      */
-    public Character(int id, boolean player, String name) {
-        this.id = id;
-        this.player = player;
-        this.name = name;
+    public Character() {
     } // Character
+
+    @Override
+    public String toString() {
+        return name + ":\nID: " + id + "\nisPlayer: " + isPlayer;
+    } // toString
 
     /**
      * Allows access to the id of the character.
@@ -33,13 +30,31 @@ public class Character {
     } // getId
 
     /**
+     * Sets the value of the character id.
+     *
+     * @param id the id number of the character being created.
+     */
+    public void setId(int id) {
+        this.id = id;
+    } // setId
+
+    /**
      * Allows game to see whether character is a player or not.
      *
      * @return whether the character is a player or not.
      */
-    public boolean getPlayer() {
-        return this.player;
+    public boolean getIsPlayer() {
+        return this.isPlayer;
     } // getPlayer
+
+    /**
+     * Sets the value of isPlayer.
+     *
+     * @param isPlayer whether or not the character is a player.
+     */
+    public void setPlayer(boolean isPlayer) {
+        this.isPlayer = isPlayer;
+    } // setPlayer
 
     /**
      * Allows game to access character name.
@@ -49,5 +64,14 @@ public class Character {
     public String getName() {
         return this.name;
     } // getName
+
+    /**
+     * Allows the user to set the name of the character.
+     *
+     * @param name the {@code name} of the character.
+     */
+    public void setName(String name) {
+        this.name = name;
+    } // setName
 
 } // Character
