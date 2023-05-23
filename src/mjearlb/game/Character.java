@@ -1,4 +1,4 @@
-package mjearlb.driver;
+package mjearlb.game;
 
 /**
  * Basic character outline.
