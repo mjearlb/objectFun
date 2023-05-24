@@ -29,7 +29,6 @@ public class CharacterCreation {
             displayOptions();
             choice = keyboard.nextLine();
             checkChoice();
-            displayCurrent();
         } // while
 
     } // main
@@ -64,6 +63,9 @@ public class CharacterCreation {
             System.out.println("Please enter your name");
             name = keyboard.nextLine();
             character.setName(name);
+            displayCurrent();
+        } else {
+            System.out.println("Error: not a valid input!");
         } // if/else
     } // checkChoice
 
