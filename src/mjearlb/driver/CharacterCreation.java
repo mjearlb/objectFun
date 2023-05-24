@@ -17,6 +17,10 @@ public class CharacterCreation {
     private static Character character;
 
     public static void main(String[] args) {
+        character = new Character();
+        character.setId(1983);
+        character.setIsPlayer(true);
+
         cont = true;
         System.out.println("Hello! Welcome to the character creation "
             + "menu! Please select from the options below:");
@@ -25,6 +29,7 @@ public class CharacterCreation {
             displayOptions();
             choice = keyboard.nextLine();
             checkChoice();
+            displayCurrent();
         } // while
 
     } // main
@@ -33,8 +38,8 @@ public class CharacterCreation {
      * Displays the options available to the user.
      */
     private static void displayOptions() {
-        System.out.println("To change your name, type \"name\"" +
-            "To finish character creation, enter \"done\"");
+        System.out.println("To change your name, type \"name\" " +
+            "To finish character creation, enter \"done\".");
     } // displayOptions
 
     /**
@@ -58,8 +63,8 @@ public class CharacterCreation {
         } else if (choice.equalsIgnoreCase("name")) {
             System.out.println("Please enter your name");
             name = keyboard.nextLine();
+            character.setName(name);
         } // if/else
-        displayCurrent();
     } // checkChoice
 
     /**
@@ -73,11 +78,7 @@ public class CharacterCreation {
      * Saves the created character's data.
      */
     private static void saveCharacter() {
-        character = new Character();
-        character.setName(name);
-        character.setId(1983);
-        character.setIsPlayer(true);
-        displayCurrent();
+        System.out.println("Cannot save yet!");
     } // saveCharacter
 
 } // CharacterCreation
