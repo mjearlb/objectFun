@@ -5,36 +5,31 @@ package mjearlb.game;
  */
 public class Map {
 
-    /* CURRENT MAP:
-
-       10000
-       00000
-       00000
-       00000
-       00000
-
-     */
-
     private int[][] map;
 
     /**
      * Constructs a map object.
+     *
+     * @param rows the number of rows.
+     * @param cols the number of columns.
      */
-    public Map() {
-        setMap();
+    public Map(int rows, int cols) {
+        setMap(rows, cols);
     } // Map
 
     /**
-     * Initializes the map to 0's, except a 1 where the player is.
+     * Initializes the map to 0's, the default value for an empty space.
+     *
+     * @param rows the number of rows.
+     * @param cols the number of columns.
      */
-    private void setMap() {
-        this.map = new int[5][5];
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+    private void setMap(int rows, int cols) {
+        this.map = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 this.map[i][j] = 0;
             } // for
         } // for
-        map[0][0] = 1;
     } // setMap
 
 } // Map
