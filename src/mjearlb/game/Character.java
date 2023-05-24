@@ -52,7 +52,7 @@ public class Character {
      *
      * @param isPlayer whether or not the character is a player.
      */
-    public void setPlayer(boolean isPlayer) {
+    public void setIsPlayer(boolean isPlayer) {
         this.isPlayer = isPlayer;
     } // setPlayer
 
