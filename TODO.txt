@@ -4,3 +4,5 @@ create player class extends character
 
     decide which int's map to what (-1 is impassable wall, 0 is nothing.
     other numebrs couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
+
+    Inventory: LinkedList or Array?
