@@ -4,7 +4,15 @@ echo emacs src/mjearlb/game/Character.java
 
 echo
 
+echo emacs src/mjearlb/game/Player.java
+
+echo
+
 echo emacs src/mjearlb/game/Map.java
+
+echo
+
+echo emacs src/mjearlb/game/Inventory.java
 
 echo
 
