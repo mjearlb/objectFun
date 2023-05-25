@@ -6,7 +6,7 @@ package mjearlb.game;
 public class Character {
 
     private int id;
-    private boolean isPlayer;
+    protected boolean isPlayer;
     private String name;
 
     /**
