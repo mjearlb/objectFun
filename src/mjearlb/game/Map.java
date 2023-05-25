@@ -5,7 +5,7 @@ package mjearlb.game;
  */
 public class Map {
 
-    private int[][] map;
+    protected int[][] map;
 
     /**
      * Constructs a map object.
