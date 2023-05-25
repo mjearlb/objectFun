@@ -2,6 +2,7 @@ package mjearlb.driver;
 
 import java.util.Scanner;
 import mjearlb.game.Character;
+import mjearlb.game.Player; 
 
 /**
  * Allows the player to create a custom character.
@@ -11,15 +12,13 @@ public class CharacterCreation {
     private static Scanner keyboard = new Scanner(System.in);
     private static boolean cont;
     private static int id;
-    private static boolean player;
     private static String name;
     private static String choice;
-    private static Character character;
+    private static Player player;
 
     public static void main(String[] args) {
-        character = new Character();
-        character.setId(1983);
-        character.setIsPlayer(true);
+        player = new Player();
+        player.setId(1983);
 
         cont = true;
         System.out.println("Hello! Welcome to the character creation "
@@ -62,7 +61,7 @@ public class CharacterCreation {
         } else if (choice.equalsIgnoreCase("name")) {
             System.out.println("Please enter your name");
             name = keyboard.nextLine();
-            character.setName(name);
+            player.setName(name);
             displayCurrent();
         } else {
             System.out.println("Error: not a valid input!");
@@ -73,7 +72,7 @@ public class CharacterCreation {
      * Displays current user selections.
      */
     private static void displayCurrent() {
-        System.out.println(character);
+        System.out.println(player);
     } // displayCurrent
 
     /**
