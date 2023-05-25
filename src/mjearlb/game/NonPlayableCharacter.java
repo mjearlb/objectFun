@@ -1,6 +1,6 @@
 package mjearlb.game;
 
-import mjealrb.game.Character;
+import mjearlb.game.Character;
 
 public class NonPlayableCharacter extends Character {
 
