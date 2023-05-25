@@ -1,13 +1,13 @@
 package mjearlb.maps;
 
-import mjealrb.game.Map;
+import mjearlb.game.Map;
 
 public class TestMap extends Map {
 
     // TOD): populate with NPC's, build map layout, etc
 
     public TestMap() {
-	super(); 
+	super(5,5); 
     } // TestMap
 
 } // Map
