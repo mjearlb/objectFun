@@ -16,6 +16,10 @@ echo emacs src/mjearlb/game/Map.java
 
 echo
 
+echo emacs src/mjearlb/maps/TestMap.java
+
+echo
+
 echo emacs src/mjearlb/game/Inventory.java
 
 echo
