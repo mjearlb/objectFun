@@ -20,7 +20,7 @@ public class TestMap extends Map {
     } // TestMap
 
     private void initNPCs() {
-	String[] names = {"Tim", "Nathan", "Claire", "Kevin", "Supa Mike");
+	String[] names = {"Tim", "Nathan", "Claire", "Kevin", "Supa Mike"};
 	int id = 5; 
 	npcs = new NonPlayableCharacter[5];
 	for (int i = 0; i < 5; i++) {
