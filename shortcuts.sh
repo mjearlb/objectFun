@@ -8,6 +8,10 @@ echo emacs src/mjearlb/game/Player.java
 
 echo
 
+echo emacs src/mjearlb/game/NonPlayableCharacter.java
+
+echo
+
 echo emacs src/mjearlb/game/Map.java
 
 echo
