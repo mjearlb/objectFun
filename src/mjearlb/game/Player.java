@@ -5,7 +5,8 @@ import mjearlb.game.Character;
 public class Player extends Character {
 
     public Player() {
-	super(); 
+	super();
+	this.isPlayer = true; 
     } // Player
 
 } // Player
