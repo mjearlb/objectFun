@@ -19,7 +19,6 @@ public class Map {
 
     /**
      * Initializes the map to 0's, the default value for an empty space.
-     * setMap is meant to be ovveridden by any custom Map classes. 
      *
      * @param rows the number of rows.
      * @param cols the number of columns.
