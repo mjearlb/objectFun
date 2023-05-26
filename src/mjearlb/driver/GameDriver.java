@@ -1,7 +1,9 @@
 package mjearlb.driver;
 
+import mjearlb.maps.TestMap;
 import mjearlb.game.Map;
-import mjearlb.game.Character;
+import mjearlb.game.Player;
+import mjearlb.game.NonPlayableCharacter;
 
 /**
  * Main driver program for the game.
@@ -17,7 +19,7 @@ public class GameDriver {
      * by the game during runtime.
      */
     public static void initObjects() {
-        Map outside = new Map(5,5);
+        TestMap outside = new TestMap();
         getPlayer();
         getNPCs();
     } // initObjects
@@ -29,7 +31,7 @@ public class GameDriver {
      * character object
      */
     public static void getPlayer() {
-        Character player = new Character();
+        Player player = new Player();
         player.setName("player");
         player.setId(20);
         player.setIsPlayer(true);
@@ -39,7 +41,7 @@ public class GameDriver {
      * Creates all NPC's.
      */
     private static void getNPCs() {
-        Character ted = new Character();
+        NonPlayableCharacter ted = new NonPlayableCharacter();
         ted.setName("Ted");
         ted.setId(5);
         ted.setIsPlayer(false);
