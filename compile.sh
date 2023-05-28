@@ -1,5 +1,7 @@
 #!/bin/bash -ex
 
+rm -rf bin/mjearlb
+
 javac -d bin src/mjearlb/game/character/Stats.java
 
 javac -d bin -cp bin src/mjearlb/game/character/Character.java
