@@ -1,8 +1,8 @@
 package mjearlb.driver;
 
 import java.util.Scanner;
-import mjearlb.game.Character;
-import mjearlb.game.Player; 
+import mjearlb.game.character.Character;
+import mjearlb.game.character.Player;
 
 /**
  * Allows the player to create a custom character.

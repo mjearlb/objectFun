@@ -2,8 +2,8 @@ package mjearlb.driver;
 
 import mjearlb.maps.TestMap;
 import mjearlb.game.Map;
-import mjearlb.game.Player;
-import mjearlb.game.NonPlayableCharacter;
+import mjearlb.game.character.Player;
+import mjearlb.game.character.NonPlayableCharacter;
 
 /**
  * Main driver program for the game.
