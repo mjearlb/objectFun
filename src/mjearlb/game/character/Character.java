@@ -1,4 +1,4 @@
-package mjearlb.game;
+package mjearlb.game.character;
 
 /**
  * Basic character outline.
