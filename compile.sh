@@ -1,10 +1,12 @@
 #!/bin/bash -ex
 
-javac -d bin src/mjearlb/game/Character.java
+javac -d bin src/mjearlb/game/character/Stats.java
 
-javac -d bin -cp bin src/mjearlb/game/Player.java
+javac -d bin -cp bin src/mjearlb/game/character/Character.java
 
-javac -d bin -cp bin src/mjearlb/game/NonPlayableCharacter.java
+javac -d bin -cp bin src/mjearlb/game/character/Player.java
+
+javac -d bin -cp bin src/mjearlb/game/character/NonPlayableCharacter.java
 
 javac -d bin src/mjearlb/game/items/Item.java
 

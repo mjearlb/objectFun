@@ -1,14 +1,18 @@
 echo
 
-echo emacs src/mjearlb/game/Character.java
+echo emacs src/mjearlb/game/character/Stats.java
 
 echo
 
-echo emacs src/mjearlb/game/Player.java
+echo emacs src/mjearlb/game/character/Character.java
 
 echo
 
-echo emacs src/mjearlb/game/NonPlayableCharacter.java
+echo emacs src/mjearlb/game/character/Player.java
+
+echo
+
+echo emacs src/mjearlb/game/character/NonPlayableCharacter.java
 
 echo
 
