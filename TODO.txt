@@ -6,3 +6,5 @@ create player class extends character
     other numebrs couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
 
     Inventory: LinkedList or Array?
+
+    create Map interface with abstract implementations of all needed methods
