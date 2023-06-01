@@ -28,6 +28,10 @@ echo emacs src/mjearlb/game/items/Item.java
 
 echo
 
+echo emacs src/mjearlb/game/items/Weapon.java
+
+echo
+
 echo emacs src/mjearlb/game/Inventory.java
 
 echo
