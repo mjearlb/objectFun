@@ -36,6 +36,10 @@ echo emacs src/mjearlb/game/Inventory.java
 
 echo
 
+echo emacs src/mjearlb/game/Chest.java
+
+echo
+
 echo emacs src/mjearlb/driver/CharacterCreation.java
 
 echo
