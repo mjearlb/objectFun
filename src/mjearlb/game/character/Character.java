@@ -1,5 +1,7 @@
 package mjearlb.game.character;
 
+import mjearlb.game.character.Stats; 
+
 /**
  * Basic character outline.
  */
@@ -8,6 +10,7 @@ public class Character {
     private int id;
     protected boolean isPlayer;
     private String name;
+    private Stats stats
 
     /**
      * Creates the character object.
