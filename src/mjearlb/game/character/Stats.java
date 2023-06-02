@@ -6,5 +6,12 @@ package mjearlb.game.character;
  */
 public class Stats {
 
+    int strength;
+    int wisdom;
+    int agility;
+
+    public Stats() {
+
+    } // Stats
 
 } // Stats
