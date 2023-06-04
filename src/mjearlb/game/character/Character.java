@@ -10,7 +10,7 @@ public class Character {
     private int id;
     protected boolean isPlayer;
     private String name;
-    private Stats stats
+    private Stats stats;
 
     /**
      * Creates the character object.
@@ -76,5 +76,14 @@ public class Character {
     public void setName(String name) {
         this.name = name;
     } // setName
+
+    /**
+     * Sets the stats for the player's chosen class. 
+     *
+     * @param charClass the class which the player wants to select. 
+     */
+    public void setClass(String charClass) {
+	this.stats = new Stats(charClass); 
+    } // setClass
 
 } // Character
