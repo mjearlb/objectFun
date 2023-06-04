@@ -28,19 +28,19 @@ public class Stats {
      */
     private void setStats(String charClass) {
 	if (charClass.equals("wizard")) {
-	    this.stregth = 6; 
+	    this.strength = 6; 
 	    this.wisdom = 12; 
 	    this.agility = 6; 
 	    this.deception = 10; 
 	    this.magic = 16; 
 	} else if (charClass.equals("human")) {
-	    this.stregth = 8; 
+	    this.strength = 8; 
             this.wisdom	= 8; 
             this.agility = 10; 
             this.deception = 8; 
             this.magic = 4; 
 	} else if (charClass.equals("elf")) {
-	    this.stregth = 6; 
+	    this.strength = 6; 
             this.wisdom	= 11; 
             this.agility = 13; 
             this.deception = 9; 
