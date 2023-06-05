@@ -48,4 +48,13 @@ public class Stats {
 	} // if/else
     } // setStats
 
+    @Override
+    public String toString() {
+	System.out.println("Stats:\nStrength: " + this.strength +
+			   "\nWisdom: " + this.wisdom +
+			   "\nAgility: " + this.agility +
+			   "\nDeception: " + this.deception +
+			   "\nMagic: " + this.magic); 
+    } // toString
+
 } // Stats

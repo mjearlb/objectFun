@@ -20,7 +20,7 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer;
+        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\n" + stats;
     } // toString
 
     /**
