@@ -1,6 +1,6 @@
 package mjearlb.game.character;
 
-import mjearlb.game.character.Stats; 
+import mjearlb.game.character.Stats;
 
 /**
  * Basic character outline.
@@ -10,6 +10,7 @@ public class Character {
     private int id;
     protected boolean isPlayer;
     private String name;
+    private String charClass;
     public Stats stats;
 
     /**
@@ -20,7 +21,8 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\n" + stats;
+        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\nClass: " + charClass
+            + "\n" + stats;
     } // toString
 
     /**
@@ -78,12 +80,13 @@ public class Character {
     } // setName
 
     /**
-     * Sets the stats for the player's chosen class. 
+     * Sets the stats for the player's chosen class.
      *
-     * @param charClass the class which the player wants to select. 
+     * @param charClass the class which the player wants to select.
      */
     public void setClass(String charClass) {
-	this.stats = new Stats(charClass); 
+        this.charClass = charClass;
+        this.stats = new Stats(charClass);
     } // setClass
 
 } // Character
