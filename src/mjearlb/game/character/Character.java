@@ -10,7 +10,7 @@ public class Character {
     private int id;
     protected boolean isPlayer;
     private String name;
-    private Stats stats;
+    public Stats stats;
 
     /**
      * Creates the character object.
