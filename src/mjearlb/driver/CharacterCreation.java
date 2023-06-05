@@ -3,6 +3,7 @@ package mjearlb.driver;
 import java.util.Scanner;
 import mjearlb.game.character.Character;
 import mjearlb.game.character.Player;
+import mjearlb.game.character.Stats; 
 
 /**
  * Allows the player to create a custom character.
@@ -15,6 +16,7 @@ public class CharacterCreation {
     private static String name;
     private static String choice;
     private static Player player;
+    private static String classChoice; 
 
     public static void main(String[] args) {
         player = new Player();
@@ -36,7 +38,8 @@ public class CharacterCreation {
      * Displays the options available to the user.
      */
     private static void displayOptions() {
-        System.out.println("To change your name, type \"name\" " +
+        System.out.println("To change your name, type \"name\"\n" +
+			   "To change the class of your character, type \"class\"\n" + 
             "To finish character creation, enter \"done\".");
     } // displayOptions
 
@@ -63,10 +66,32 @@ public class CharacterCreation {
             name = keyboard.nextLine();
             player.setName(name);
             displayCurrent();
-        } else {
+        } else if (choice.equalsIgnoreCase("class")) {
+	    chooseClass(); 
+	} else {
             System.out.println("Error: not a valid input!");
         } // if/else
     } // checkChoice
+
+    private static void chooseClass() {
+	System.out.println("\nPlease choose your class: " +
+			   "human, wizard, elf");
+	classChoice = keyboard.nextLine(); 
+	switch (classChoice) {
+	case "human":
+	    player.stats = new Stats("human");
+	    break; 
+	case "wizard":
+	    player.stats = new Stats("wizard");
+	    break; 
+	case "elf":
+	    player.stats = new Stats("elf");
+	    break; 
+	default:
+	    System.out.println("Error: not a class"); 
+	    chooseClass(); 
+	} // switch
+    } // chooseClass
 
     /**
      * Displays current user selections.
