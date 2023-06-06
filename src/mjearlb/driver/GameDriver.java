@@ -12,8 +12,9 @@ import mjearlb.game.character.NonPlayableCharacter;
 public class GameDriver {
 
     private static Scanner keyboard = new Scanner(System.in);
-    private boolean playing;
-    private String choice; 
+    private static boolean playing;
+    private static String choice;
+    public static TestMap map; 
 
     public static void main(String[] args) {
 	playing = true; 
@@ -29,7 +30,7 @@ public class GameDriver {
      * by the game during runtime.
      */
     private static void initObjects() {
-        TestMap map = new TestMap();
+        map = new TestMap();
         getPlayer();
     } // initObjects
 
