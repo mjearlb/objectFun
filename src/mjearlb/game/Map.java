@@ -38,12 +38,14 @@ public class Map {
 
     @Override
     public String toString() {
+	String mapString = ""; 
 	for (int i = 0; i < this.rows; i++) {
 	    for (int j = 0; j < this.cols; j++) {
-		printf("%i", this.map[i][j]); 
+		mapString += this.map[i][j]; 
 	    } // for
-	    printf("\n"); 
+	    mapString += "\n"; 
 	} // for
+	return mapString; 
     } // dispMap
 
 } // Map
