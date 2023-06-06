@@ -6,6 +6,8 @@ package mjearlb.game;
 public class Map {
 
     protected int[][] map;
+    private int rows;
+    private int cols; 
 
     /**
      * Constructs a map object.
@@ -15,6 +17,8 @@ public class Map {
      */
     public Map(int rows, int cols) {
         setMap(rows, cols);
+	this.rows = rows;
+	this.cols = cols; 
     } // Map
 
     /**
@@ -31,5 +35,15 @@ public class Map {
             } // for
         } // for
     } // setMap
+
+    @Override
+    public String toString() {
+	for (int i = 0; i < this.rows; i++) {
+	    for (int j = 0; j < this.cols; j++) {
+		printf("%i", this.map[i][j]); 
+	    } // for
+	    printf("\n"); 
+	} // for
+    } // dispMap
 
 } // Map
