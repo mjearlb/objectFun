@@ -10,7 +10,7 @@ public class Character {
     private int id;
     protected boolean isPlayer;
     private String name;
-    private String charClass;
+    public String charClass;
     public Stats stats;
 
     /**
@@ -85,7 +85,6 @@ public class Character {
      * @param charClass the class which the player wants to select.
      */
     public void setClass(String charClass) {
-        this.charClass = charClass;
         this.stats = new Stats(charClass);
     } // setClass
 
