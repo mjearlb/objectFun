@@ -60,16 +60,6 @@ public class GameDriver {
         player.setIsPlayer(true);
     } // getPlayer
 
-    /**
-     * Creates all NPC's.
-     */
-    private static void getNPCs() {
-        NonPlayableCharacter ted = new NonPlayableCharacter();
-        ted.setName("Ted");
-        ted.setId(5);
-        ted.setIsPlayer(false);
-    } // getNPCs
-
     private static void printHelp() {
 	System.out.println("Help menu:\nhelp: displays valid options\n" +
 			   "w: moves up one square\n" +
