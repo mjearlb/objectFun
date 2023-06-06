@@ -5,7 +5,7 @@ import mjearlb.game.character.Stats;
 /**
  * Basic character outline.
  */
-public class Character {
+public abstract class Character {
 
     private int id;
     protected boolean isPlayer;

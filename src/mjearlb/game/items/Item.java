@@ -4,7 +4,7 @@ package mjearlb.game.items;
  * Is an object that can be placed in a
  * character's inventory.
  */
-public class Item extends Object {
+public abstract class Item extends Object {
 
     private int id;
 

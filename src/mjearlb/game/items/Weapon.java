@@ -2,7 +2,7 @@ package mjearlb.game.items;
 
 import mjearlb.game.items.Item;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
 
     int damage; 
 
