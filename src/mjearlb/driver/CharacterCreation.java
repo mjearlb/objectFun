@@ -24,7 +24,7 @@ public class CharacterCreation {
 
         cont = true;
         System.out.println("Hello! Welcome to the character creation "
-        + "menu! Please select from the options below:");
+            + "menu! Please select from the options below:");
 
         while (cont) {
             displayOptions();
@@ -38,9 +38,10 @@ public class CharacterCreation {
      * Displays the options available to the user.
      */
     private static void displayOptions() {
-        System.out.println("To change your name, type \"name\"\n" +
-        "To change the class of your character, type \"class\"\n" +
-        "To finish character creation, enter \"done\".");
+        System.out.println("To change the class of your character, type \"class\"\n"
+            + "To change your character's name, type \"name\"\n"
+            + "To see what you have already selected, type \"current\"\n"
+            + "To finish character creation, enter \"done\".");
     } // displayOptions
 
     /**
@@ -49,9 +50,9 @@ public class CharacterCreation {
      */
     private static void checkChoice() {
         if (choice.equalsIgnoreCase("done")) {
-            if ((name == null)) {
+            if (name == null || player.stats == null) {
                 System.out.println("Error: cannot create unfinished character. "
-                + "Would you like to exit without saving? (y/n)");
+                    + "Would you like to exit without saving? (y/n)");
                 choice = keyboard.nextLine();
                 if (choice.equalsIgnoreCase("y")) {
                     cont = false;
@@ -65,9 +66,10 @@ public class CharacterCreation {
             System.out.println("Please enter your name");
             name = keyboard.nextLine();
             player.setName(name);
-            displayCurrent();
         } else if (choice.equalsIgnoreCase("class")) {
             chooseClass();
+        } else if (choice.equalsIgnoreCase("current")) {
+            displayCurrent();
         } else {
             System.out.println("Error: not a valid input!");
         } // if/else
@@ -110,6 +112,7 @@ public class CharacterCreation {
      * Saves the created character's data.
      */
     private static void saveCharacter() {
+        displayCurrent();
         System.out.println("Cannot save yet!");
     } // saveCharacter
 
