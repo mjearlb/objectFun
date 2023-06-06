@@ -3,7 +3,7 @@ package mjearlb.driver;
 import java.util.Scanner;
 import mjearlb.game.character.Character;
 import mjearlb.game.character.Player;
-import mjearlb.game.character.Stats; 
+import mjearlb.game.character.Stats;
 
 /**
  * Allows the player to create a custom character.
@@ -16,7 +16,7 @@ public class CharacterCreation {
     private static String name;
     private static String choice;
     private static Player player;
-    private static String classChoice; 
+    private static String classChoice;
 
     public static void main(String[] args) {
         player = new Player();
@@ -24,7 +24,7 @@ public class CharacterCreation {
 
         cont = true;
         System.out.println("Hello! Welcome to the character creation "
-            + "menu! Please select from the options below:");
+        + "menu! Please select from the options below:");
 
         while (cont) {
             displayOptions();
@@ -39,8 +39,8 @@ public class CharacterCreation {
      */
     private static void displayOptions() {
         System.out.println("To change your name, type \"name\"\n" +
-			   "To change the class of your character, type \"class\"\n" + 
-            "To finish character creation, enter \"done\".");
+        "To change the class of your character, type \"class\"\n" +
+        "To finish character creation, enter \"done\".");
     } // displayOptions
 
     /**
@@ -51,7 +51,7 @@ public class CharacterCreation {
         if (choice.equalsIgnoreCase("done")) {
             if ((name == null)) {
                 System.out.println("Error: cannot create unfinished character. "
-                    + "Would you like to exit without saving? (y/n)");
+                + "Would you like to exit without saving? (y/n)");
                 choice = keyboard.nextLine();
                 if (choice.equalsIgnoreCase("y")) {
                     cont = false;
@@ -67,30 +67,36 @@ public class CharacterCreation {
             player.setName(name);
             displayCurrent();
         } else if (choice.equalsIgnoreCase("class")) {
-	    chooseClass(); 
-	} else {
+            chooseClass();
+        } else {
             System.out.println("Error: not a valid input!");
         } // if/else
     } // checkChoice
 
+    /**
+     * Allows user to select the class of their character.
+     */
     private static void chooseClass() {
-	System.out.println("\nPlease choose your class: " +
-			   "human, wizard, elf");
-	classChoice = keyboard.nextLine(); 
-	switch (classChoice) {
-	case "human":
-	    player.stats = new Stats("human");
-	    break; 
-	case "wizard":
-	    player.stats = new Stats("wizard");
-	    break; 
-	case "elf":
-	    player.stats = new Stats("elf");
-	    break; 
-	default:
-	    System.out.println("Error: not a class"); 
-	    chooseClass(); 
-	} // switch
+        System.out.println("\nPlease choose your class: " +
+            "human, wizard, elf");
+        classChoice = keyboard.nextLine();
+        switch (classChoice) {
+        case "human":
+            player.stats = new Stats("human");
+            player.charClass = "human";
+            break;
+        case "wizard":
+            player.stats = new Stats("wizard");
+            player.charClass = "wizard";
+            break;
+        case "elf":
+            player.stats = new Stats("elf");
+            player.charClass = "elf";
+            break;
+        default:
+            System.out.println("Error: not a class");
+            chooseClass();
+        } // switch
     } // chooseClass
 
     /**
