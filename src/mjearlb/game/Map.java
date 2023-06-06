@@ -48,4 +48,14 @@ public class Map {
 	return mapString; 
     } // dispMap
 
+    /**
+     * Used to test if the player can walk on certain spaces. 
+     *
+     * @return {@code true} if the tile is accesible by the player,
+     * {@code false} if not. 
+     */
+    public boolean canWalk(int tile) {
+	return tile >= 0; // for now, walkable spaces will be positive, negative will be walls, buildings, etc. 
+    } // canWalk
+
 } // Map
