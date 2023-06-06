@@ -29,9 +29,8 @@ public class GameDriver {
      * by the game during runtime.
      */
     private static void initObjects() {
-        TestMap outside = new TestMap();
+        TestMap map = new TestMap();
         getPlayer();
-        getNPCs();
     } // initObjects
 
     /**
@@ -41,6 +40,9 @@ public class GameDriver {
 	switch (choice) {
 	case "help":
 	    printHelp(); 
+	    break;
+	case "map":
+	    map.dispMap();
 	    break; 
 	default:
 	    System.out.println("Error: not a valid option"); 
@@ -60,12 +62,16 @@ public class GameDriver {
         player.setIsPlayer(true);
     } // getPlayer
 
+    /**
+     * Prints the options available to the character. 
+     */
     private static void printHelp() {
 	System.out.println("Help menu:\nhelp: displays valid options\n" +
 			   "w: moves up one square\n" +
 			   "s: moves down one square\n" +
 			   "a: moves left one square\n" +
-			   "d: moves right one square\n"); 
+			   "d: moves right one square\n" +
+			   "map: displays the map"); 
     } // printHelp
 
 } // GameDriver
