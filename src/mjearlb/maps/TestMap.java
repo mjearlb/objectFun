@@ -21,7 +21,7 @@ public class TestMap extends Map {
 
     private void initNPCs() {
 	String[] names = {"Tim", "Nathan", "Claire", "Kevin", "Supa Mike"};
-	int id = 5;
+	int id = 5000;
 	npcs = new NonPlayableCharacter[5];
 	for (int i = 0; i < 5; i++) {
 	    npcs[i] = new NonPlayableCharacter();
@@ -39,5 +39,9 @@ public class TestMap extends Map {
     private void hashNPCs() {
 	System.out.println("Cannot map NPC's to int's");
     } // hashNPCs
+
+    public void dispMap() {
+	System.out.println(this.toString()); 
+    } // dispMap
 
 } // TestMap
