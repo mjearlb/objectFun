@@ -44,6 +44,9 @@ public class GameDriver {
 	    break;
 	case "map":
 	    map.dispMap();
+	    break;
+	case "w":
+	    playerWalk(); 
 	    break; 
 	default:
 	    System.out.println("Error: not a valid option"); 
@@ -74,5 +77,24 @@ public class GameDriver {
 			   "d: moves right one square\n" +
 			   "map: displays the map"); 
     } // printHelp
+
+    /**
+     * Determines if the player can move. If so, then then runs the
+     * correct move method. 
+     */
+    private void playerWalk() {
+	switch (choice) {
+	case "w":
+	    break;
+	case "s":
+	    break;
+	case "a":
+	    break;
+	case "d":
+	    break;
+	default:
+	    System.out.println("Error: cannot walk here!"); 
+	} // switch
+    } // playerWalk
 
 } // GameDriver
