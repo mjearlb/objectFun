@@ -5,6 +5,8 @@ import mjearlb.maps.TestMap;
 import mjearlb.game.Map;
 import mjearlb.game.character.Player;
 import mjearlb.game.character.NonPlayableCharacter;
+import mjearlb.writer.ReadFromFile;
+import static mjearlb.writer.ReadFromFile.readFromFile;
 
 /**
  * Main driver program for the game.
@@ -82,7 +84,7 @@ public class GameDriver {
      * Determines if the player can move. If so, then then runs the
      * correct move method. 
      */
-    private void playerWalk() {
+    private static void playerWalk() {
 	switch (choice) {
 	case "w":
 	    break;
