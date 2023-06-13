@@ -4,6 +4,8 @@ import java.util.Scanner;
 import mjearlb.game.character.Character;
 import mjearlb.game.character.Player;
 import mjearlb.game.character.Stats;
+import mjearlb.writer.WriteToFile;
+import static mjearlb.writer.WriteToFile.writeToFile; 
 
 /**
  * Allows the player to create a custom character.
