@@ -4,9 +4,12 @@ import java.util.Scanner;
 import mjearlb.maps.TestMap;
 import mjearlb.game.Map;
 import mjearlb.game.character.Player;
+import mjearlb.game.character.Stats; 
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.writer.ReadFromFile;
 import static mjearlb.writer.ReadFromFile.readFromFile;
+
+import java.io.FileNotFoundException;
 
 /**
  * Main driver program for the game.
@@ -16,10 +19,12 @@ public class GameDriver {
     private static Scanner keyboard = new Scanner(System.in);
     private static boolean playing;
     private static String choice;
-    public static TestMap map; 
+    public static TestMap map;
+    private static Player player; 
 
     public static void main(String[] args) {
-	playing = true; 
+	playing = true;
+	getPlayer(); 
         initObjects();
 	while (playing) {
 	    choice = keyboard.nextLine();
@@ -33,7 +38,6 @@ public class GameDriver {
      */
     private static void initObjects() {
         map = new TestMap();
-        getPlayer();
     } // initObjects
 
     /**
@@ -62,10 +66,35 @@ public class GameDriver {
      * character object
      */
     private static void getPlayer() {
-        Player player = new Player();
-        player.setName("player");
-        player.setId(20);
-        player.setIsPlayer(true);
+	boolean choosePlayer = true;
+	String playerChoice = ""; 
+	while (choosePlayer) {
+	    System.out.println("Load character or use default?\nTo choose, type " +
+			       "\"load\" or \"default\":");
+	    playerChoice = keyboard.nextLine(); 
+	    if (playerChoice.equalsIgnoreCase("load")) {
+		boolean validName = false;
+		while (!validName) {
+		    System.out.println("What is the name of your character?");
+		    String playerName = keyboard.nextLine();
+		    try {
+			player = readFromFile(playerName, Player.class);
+			validName = true;
+			choosePlayer = false;
+			System.out.println(player); 
+		    } catch (FileNotFoundException e) {
+			System.out.println("Error: file not found"); 
+		    } // catch
+		} // while
+	    } else if (playerChoice.equalsIgnoreCase("default")) {
+		player = new Player();
+		player.setName("Dave");
+		player.stats = new Stats("human");
+		player.charClass = "human";
+	    } else {
+		System.out.println("Error: invalid choice!"); 
+	    } // if/else
+	} // while
     } // getPlayer
 
     /**
