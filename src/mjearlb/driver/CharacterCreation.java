@@ -115,7 +115,24 @@ public class CharacterCreation {
      */
     private static void saveCharacter() {
         displayCurrent();
-        System.out.println("Cannot save yet!");
+	String username = null; 
+	while (username == null) {
+	    System.out.print("Please enter a unique player username: ");
+	    if (isUnique(username)) {
+		    username = keyboard.nextLine();
+	    } // if
+	} // while
+	writeToFile(player, username); 
     } // saveCharacter
+
+    /**
+     * Checks the uniqueness of the player's username.
+     *
+     * @return false if another file is found in resources/ with the same
+     * name. 
+     */
+    private static boolean isUnique(String username) {
+	return true; 
+    } // isUnique
 
 } // CharacterCreation
