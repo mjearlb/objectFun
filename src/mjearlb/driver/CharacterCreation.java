@@ -62,6 +62,7 @@ public class CharacterCreation {
                 } // if
             } else {
                 System.out.println("Saving...");
+		displayCurrent(); 
                 saveCharacter();
                 cont = false;
             } // if/else
@@ -115,18 +116,19 @@ public class CharacterCreation {
      * Saves the created character's data.
      */
     private static void saveCharacter() {
-        displayCurrent();
-	String username = null; 
-	while (username == null) {
-	    System.out.print("Please enter a unique player username: ");
-	    if (isUnique(username)) {
-		    username = keyboard.nextLine();
+	String username = null;
+	System.out.print("Please enter a unique username: ");
+	while (username == null || username == "") {
+	    username = keyboard.nextLine();
+	    if (username == null || username == "") {
+		System.out.println("\nError: invalid name"); 
 	    } // if
 	} // while
 	try {
 	    writeToFile(player, username);
 	} catch (FileAlreadyExistsException e) {
-	    System.out.println("Error: username is already used!"); 
+	    System.out.println("Error: username is already used!");
+	    saveCharacter(); 
 	} // catch
     } // saveCharacter
 
