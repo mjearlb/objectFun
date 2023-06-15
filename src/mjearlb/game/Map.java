@@ -5,7 +5,7 @@ package mjearlb.game;
  */
 public class Map {
 
-    protected int[][] map;
+    protected char[][] map;
     private int rows;
     private int cols; 
 
@@ -28,10 +28,10 @@ public class Map {
      * @param cols the number of columns.
      */
     private void setMap(int rows, int cols) {
-        this.map = new int[rows][cols];
+        this.map = new char[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                this.map[i][j] = 0;
+                this.map[i][j] = '0';
             } // for
         } // for
     } // setMap
