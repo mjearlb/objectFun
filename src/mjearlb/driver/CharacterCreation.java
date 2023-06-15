@@ -1,6 +1,7 @@
 package mjearlb.driver;
 
 import java.util.Scanner;
+import java.nio.file.FileAlreadyExistsException;
 import mjearlb.game.character.Character;
 import mjearlb.game.character.Player;
 import mjearlb.game.character.Stats;
@@ -122,17 +123,11 @@ public class CharacterCreation {
 		    username = keyboard.nextLine();
 	    } // if
 	} // while
-	writeToFile(player, username); 
+	try {
+	    writeToFile(player, username);
+	} catch (FileAlreadyExistsException e) {
+	    System.out.println("Error: username is already used!"); 
+	} // catch
     } // saveCharacter
-
-    /**
-     * Checks the uniqueness of the player's username.
-     *
-     * @return false if another file is found in resources/ with the same
-     * name. 
-     */
-    private static boolean isUnique(String username) {
-	return true; 
-    } // isUnique
 
 } // CharacterCreation
