@@ -1,4 +1,4 @@
     decide which int's map to what (-1 is impassable wall, 0 is nothing.
     other numbers couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
 
-    prevent player movement to out of bounds area.
+    implement player movement for left and right
