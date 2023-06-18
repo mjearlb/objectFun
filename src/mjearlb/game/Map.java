@@ -5,7 +5,7 @@ package mjearlb.game;
  */
 public class Map {
 
-    protected char[][] map;
+    public char[][] map;
     public int rows;
     public int cols;
     private int size;
@@ -58,9 +58,23 @@ public class Map {
      * @return {@code true} if the tile is accesible by the player,
      * {@code false} if not.
      */
-    public boolean canWalk(int tile) {
+    public boolean canWalk(char tile) {
         return tile >= 0;
         // for now, walkable spaces will be positive, negative will be walls, buildings, etc.
     } // canWalk
+
+    /**
+     * Allows the player to move upwards.
+     *
+     * @param tile the tile we want to walk to.
+     * @throws IndexOutOfBoundsException if the player tries to move off of the map.
+     */
+    public void walkUp(char tile) throws IndexOutOfBoundsException {
+        if (canWalk(tile)) {
+            this.currCoords[0] -= 1;
+        } else {
+            System.out.println("Error: cannot walk upwards here");
+        } // if/else
+    } // walkUp
 
 } // Map
