@@ -118,7 +118,11 @@ public class GameDriver {
     private static void playerWalk() {
         switch (choice) {
         case "w":
-            break;
+            try {
+                map.walkUp(map.map[map.currCoords[0] + 1][map.currCoords[1]]);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Error: cannot walk out of bounds");
+            } // try/catch
         case "s":
             break;
         case "a":
