@@ -1,10 +1,4 @@
-create player class extends character
-
-    create NPC class extends character
-
     decide which int's map to what (-1 is impassable wall, 0 is nothing.
-    other numebrs couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
+    other numbers couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
 
-    Inventory: LinkedList or Array?
-
-    create Map interface with abstract implementations of all needed methods
+    prevent player movement to out of bounds area.
