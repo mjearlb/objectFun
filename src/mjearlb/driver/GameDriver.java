@@ -148,10 +148,16 @@ public class GameDriver {
             } // try/catch
             break;
         case "d":
+            try {
+                map.walkRight(map.map[map.currCoords[0]][map.currCoords[1] + 1]);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Error: cannot walk out of bounds");
+            } // try/catch
             break;
         default:
             System.out.println("Error: cannot walk here!");
         } // switch
+        map.dispMap();
     } // playerWalk
 
 } // GameDriver
