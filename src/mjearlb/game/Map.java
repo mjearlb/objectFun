@@ -103,7 +103,20 @@ public class Map {
         } else {
             System.out.println("Error: cannot walk downwards here");
         } // if/else
-    } // walkDown
+    } // walkLeft
 
+    /**
+     * Allows the player to move right.
+     *
+     * @param tile the tile we want to walk to.
+     * @throws IndexOutOfBoundsException if the player tries to move off of the map.
+     */
+    public void walkRight(char tile) throws IndexOutOfBoundsException {
+        if (canWalk(tile)) {
+            this.currCoords[1] += 1;
+        } else {
+            System.out.println("Error: cannot walk downwards here");
+        } // if/else
+    } // walkRight
 
 } // Map
