@@ -6,8 +6,9 @@ package mjearlb.game;
 public class Map {
 
     protected char[][] map;
-    private int rows;
-    private int cols;
+    public int rows;
+    public int cols;
+    private int size;
     public int[] currCoords;
 
     /**
