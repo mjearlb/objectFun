@@ -54,6 +54,15 @@ public class GameDriver {
         case "w":
             playerWalk();
             break;
+        case "s":
+            playerWalk();
+            break;
+        case "a":
+            playerWalk();
+            break;
+        case "d":
+            playerWalk();
+            break;
         default:
             System.out.println("Error: not a valid option");
         } // switch
@@ -123,7 +132,13 @@ public class GameDriver {
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Error: cannot walk out of bounds");
             } // try/catch
+            break;
         case "s":
+            try {
+                map.walkDown(map.map[map.currCoords[0] - 1][map.currCoords[1]]);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Error: cannot walk out of bounds");
+            } // try/catch
             break;
         case "a":
             break;
