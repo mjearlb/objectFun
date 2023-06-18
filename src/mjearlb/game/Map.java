@@ -7,7 +7,8 @@ public class Map {
 
     protected char[][] map;
     private int rows;
-    private int cols; 
+    private int cols;
+    public int[] currCoords;
 
     /**
      * Constructs a map object.
@@ -17,8 +18,8 @@ public class Map {
      */
     public Map(int rows, int cols) {
         setMap(rows, cols);
-	this.rows = rows;
-	this.cols = cols; 
+        this.rows = rows;
+        this.cols = cols;
     } // Map
 
     /**
@@ -38,24 +39,27 @@ public class Map {
 
     @Override
     public String toString() {
-	String mapString = ""; 
-	for (int i = 0; i < this.rows; i++) {
-	    for (int j = 0; j < this.cols; j++) {
-		mapString += this.map[i][j]; 
-	    } // for
-	    mapString += "\n"; 
-	} // for
-	return mapString; 
+        String mapString = "";
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                mapString += this.map[i][j];
+            } // for
+            mapString += "\n";
+        } // for
+        return mapString;
     } // dispMap
 
     /**
-     * Used to test if the player can walk on certain spaces. 
+     * Used to test if the player can walk on certain spaces.
+     * NOTE: may change to accept the coord's as parameter.
      *
+     * @param tile the contents of the tile being checked
      * @return {@code true} if the tile is accesible by the player,
-     * {@code false} if not. 
+     * {@code false} if not.
      */
     public boolean canWalk(int tile) {
-	return tile >= 0; // for now, walkable spaces will be positive, negative will be walls, buildings, etc. 
+        return tile >= 0;
+        // for now, walkable spaces will be positive, negative will be walls, buildings, etc.
     } // canWalk
 
 } // Map
