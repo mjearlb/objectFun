@@ -70,7 +70,7 @@ public class GameDriver {
         String playerChoice = "";
         while (choosePlayer) {
             System.out.println("Load character or use default?\nTo choose, type " +
-            "\"load\" or \"default\":");
+                "\"load\" or \"default\":");
             playerChoice = keyboard.nextLine();
             if (playerChoice.equalsIgnoreCase("load")) {
                 boolean validName = false;
@@ -91,6 +91,7 @@ public class GameDriver {
                 player.setName("Dave");
                 player.stats = new Stats("human");
                 player.charClass = "human";
+                choosePlayer = false;
             } else {
                 System.out.println("Error: invalid choice!");
             } // if/else
