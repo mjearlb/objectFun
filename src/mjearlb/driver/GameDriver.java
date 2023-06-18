@@ -128,14 +128,14 @@ public class GameDriver {
         switch (choice) {
         case "w":
             try {
-                map.walkUp(map.map[map.currCoords[0] + 1][map.currCoords[1]]);
+                map.walkUp(map.map[map.currCoords[0] - 1][map.currCoords[1]]);
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Error: cannot walk out of bounds");
             } // try/catch
             break;
         case "s":
             try {
-                map.walkDown(map.map[map.currCoords[0] - 1][map.currCoords[1]]);
+                map.walkDown(map.map[map.currCoords[0] + 1][map.currCoords[1]]);
             } catch (IndexOutOfBoundsException e) {
                 System.out.println("Error: cannot walk out of bounds");
             } // try/catch
