@@ -59,7 +59,10 @@ public class Map {
      * {@code false} if not.
      */
     private boolean canWalk(char tile) {
-        return tile >= 0;
+	if (tile >= 'A' && tile <= 'Z') {
+	    return false; 
+	} // if
+        return true;
         // for now, walkable spaces will be positive, negative will be walls, buildings, etc.
     } // canWalk
 
@@ -101,7 +104,7 @@ public class Map {
         if (canWalk(tile)) {
             this.currCoords[1] -= 1;
         } else {
-            System.out.println("Error: cannot walk downwards here");
+            System.out.println("Error: cannot walk left here");
         } // if/else
     } // walkLeft
 
@@ -115,7 +118,7 @@ public class Map {
         if (canWalk(tile)) {
             this.currCoords[1] += 1;
         } else {
-            System.out.println("Error: cannot walk downwards here");
+            System.out.println("Error: cannot walk right here");
         } // if/else
     } // walkRight
 
