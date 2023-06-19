@@ -63,6 +63,9 @@ public class GameDriver {
         case "d":
             playerWalk();
             break;
+	case "inv":
+	    investigate();
+	    break; 
         default:
             System.out.println("Error: not a valid option");
         } // switch
@@ -115,7 +118,8 @@ public class GameDriver {
             "s: moves down one square\n" +
             "a: moves left one square\n" +
             "d: moves right one square\n" +
-            "map: displays the map");
+            "map: displays the map\n" +
+	    "inv: investigate the current tile");
     } // printHelp
 
     /**
@@ -157,5 +161,12 @@ public class GameDriver {
         } // switch
         map.dispMap();
     } // playerWalk
+
+    /**
+     * Allows players to investigate their current location on the map. 
+     */
+    private static void investigate() {
+	map.investMap(player.stats.perception); 
+    } // investigate
 
 } // GameDriver
