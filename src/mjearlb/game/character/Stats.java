@@ -28,7 +28,7 @@ public class Stats {
      */
     private void setStats(String charClass) {
 	if (charClass.equals("wizard")) {
-	    this.strength = 6; 
+	    this.strength = 8; 
 	    this.wisdom = 12; 
 	    this.agility = 6; 
 	    this.deception = 10; 
@@ -45,16 +45,22 @@ public class Stats {
             this.agility = 13; 
             this.deception = 9; 
 	    this.magic = 14; 
+	} else if (charClass.equals("wook")) {
+	    this.strength = 12;
+	    this.wisdom = 6;
+	    this.agility = 12;
+	    this.deception = 10;
+	    this.magic = 2; 
 	} // if/else
     } // setStats
 
     @Override
     public String toString() {
-	return "Stats:\nStrength: " + this.strength +
-	    "\nWisdom: " + this.wisdom +
-	    "\nAgility: " + this.agility +
-	    "\nDeception: " + this.deception +
-	    "\nMagic: " + this.magic; 
+	return "Stats:\n\tStrength: " + this.strength +
+	    "\n\tWisdom: " + this.wisdom +
+	    "\n\tAgility: " + this.agility +
+	    "\n\tDeception: " + this.deception +
+	    "\n\tMagic: " + this.magic; 
     } // toString
 
 } // Stats
