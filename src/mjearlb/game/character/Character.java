@@ -85,6 +85,7 @@ public abstract class Character {
      * @param charClass the class which the player wants to select.
      */
     public void setClass(String charClass) {
+	this.charClass = charClass; 
         this.stats = new Stats(charClass);
     } // setClass
 
