@@ -19,7 +19,7 @@ public class TestMap extends Map {
      * This constructs the TestMap object and makes it.
      */
     public TestMap() {
-        super(5,5); // should set it to an empty map of size (rows, cols)
+        super(10, 10); // should set it to an empty map of size (rows, cols)
         initNPCs();
         buildMap();
         hashNPCs();
@@ -47,7 +47,19 @@ public class TestMap extends Map {
      * This populates the map.
      */
     private void buildMap() {
-        //this.map[0][0] = 1;
+        this.map[0][0] = '1';
+	this.map[3][3] = '0' - 1;
+
+	// walled off area
+	this.map[4][4] = 'W';
+	this.map[4][5] = 'W';
+	this.map[4][6] = 'W';
+	this.map[5][6] = 'W';
+	this.map[6][6] = 'W';
+	this.map[6][6] = 'W';
+	this.map[6][5] = 'W';
+	this.map[6][4] = 'W';
+	this.map[5][4] = 'W';
     } // buildMap
 
     /**
@@ -58,35 +70,5 @@ public class TestMap extends Map {
         System.out.println("Cannot map NPC's to char's");
     } // hashNPCs
 
-    /**
-     * Displays the map.
-     */
-    public void dispMap() {
-        String red = "\u001B[31m";
-        String white = "\u001B[0m";
-        for (int i = 0; i < currCoords[0]; i++) {
-            for (int j = 0; j < this.cols; j++) {
-                System.out.print(this.map[i][j]); 
-            } // for
-            System.out.println();
-        } // for
-
-        for (int i = 0; i < currCoords[1]; i++) {
-            System.out.print(this.map[currCoords[0]][i]);
-        } // for
-        System.out.print(red + this.map[currCoords[0]][currCoords[1]] + white);
-        for (int i = currCoords[1] + 1; i < this.cols; i++) {
-            System.out.print(this.map[currCoords[0]][i]);
-        } // for
-        System.out.println();
-
-        for (int i = currCoords[0] + 1; i < this.rows; i++) {
-            for (int j = 0; j < this.cols; j++) {
-                System.out.print(this.map[i][j]);
-            } // for
-            System.out.println();
-        } // for
-
-    } // dispMap
 
 } // TestMap
