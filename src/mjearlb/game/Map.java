@@ -33,7 +33,7 @@ public class Map {
         this.map = new char[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                this.map[i][j] = '0';
+                this.map[i][j] = '-';
             } // for
         } // for
     } // setMap
@@ -121,5 +121,35 @@ public class Map {
             System.out.println("Error: cannot walk right here");
         } // if/else
     } // walkRight
+
+    /**
+     * Displays the map.                                                                                         */
+    public void dispMap() {
+        String red = "\u001B[31m";
+        String white = "\u001B[0m";
+	// prints above Player
+        for (int i = 0; i < currCoords[0]; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                System.out.print(this.map[i][j]);
+            } // for                                                                                        
+            System.out.println();
+        } // for                                                                                                    // prints up to Player
+        for (int i = 0; i < currCoords[1]; i++) {
+            System.out.print(this.map[currCoords[0]][i]);
+        } // for                                                                                                    // prints Player
+        System.out.print(red + 'P' + white);
+        for (int i = currCoords[1] + 1; i < this.cols; i++) {
+            System.out.print(this.map[currCoords[0]][i]);
+        } // for                                                                                            
+        System.out.println();
+
+	// prints after Player
+        for (int i = currCoords[0] + 1; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                System.out.print(this.map[i][j]);
+            } // for                                                                                        
+            System.out.println();
+        } // for                                                                                            
+    } // dispMap 
 
 } // Map
