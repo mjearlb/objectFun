@@ -66,7 +66,7 @@ public class TestMap extends Map {
         String white = "\u001B[0m";
         for (int i = 0; i < currCoords[0]; i++) {
             for (int j = 0; j < this.cols; j++) {
-                System.out.print(this.map[i][j]); // for some reason, 0,0 is not being displayed
+                System.out.print(this.map[i][j]); 
             } // for
             System.out.println();
         } // for

@@ -1,6 +1,8 @@
 package mjearlb.driver;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+
 import mjearlb.maps.TestMap;
 import mjearlb.game.Map;
 import mjearlb.game.character.Player;
@@ -8,8 +10,6 @@ import mjearlb.game.character.Stats;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.writer.ReadFromFile;
 import static mjearlb.writer.ReadFromFile.readFromFile;
-
-import java.io.FileNotFoundException;
 
 /**
  * Main driver program for the game.
@@ -90,7 +90,6 @@ public class GameDriver {
                         player = readFromFile(playerName, Player.class);
                         validName = true;
                         choosePlayer = false;
-                        System.out.println(player);
                     } catch (FileNotFoundException e) {
                         System.out.println("Error: file not found");
                     } // catch
@@ -98,8 +97,7 @@ public class GameDriver {
             } else if (playerChoice.equalsIgnoreCase("default")) {
                 player = new Player();
                 player.setName("Dave");
-                player.stats = new Stats("human");
-                player.charClass = "human";
+		player.setClass("human"); 
                 choosePlayer = false;
             } else {
                 System.out.println("Error: invalid choice!");
