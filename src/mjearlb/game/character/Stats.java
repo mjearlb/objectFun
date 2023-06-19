@@ -11,7 +11,7 @@ public class Stats {
     public int agility;
     public int deception;
     public int magic;
-    public int perception; 
+    public int perception;
 
     /**
      * Creates a character's stats. 
@@ -56,6 +56,13 @@ public class Stats {
 	    this.deception = 10;
 	    this.magic = 6;
 	    this.perception = 4; 
+	}  else if (charClass.equals("dwarf")) {
+	    this.strength = 16;
+            this.wisdom = 5;
+            this.agility = 6;
+            this.deception = 8;
+            this.magic = 6;
+            this.perception = 9;
 	} // if/else
     } // setStats
 
@@ -67,7 +74,6 @@ public class Stats {
 	    "\n\tDeception: " + this.deception +
 	    "\n\tMagic: " + this.magic +
 	    "\n\tPerception: " + this.perception;
-	
     } // toString
 
 } // Stats
