@@ -58,7 +58,7 @@ public class Map {
      * @return {@code true} if the tile is accesible by the player,
      * {@code false} if not.
      */
-    public boolean canWalk(char tile) {
+    private boolean canWalk(char tile) {
         return tile >= 0;
         // for now, walkable spaces will be positive, negative will be walls, buildings, etc.
     } // canWalk
