@@ -28,41 +28,41 @@ public class Stats {
      * @param charClass the class of the character. 
      */
     private void setStats(String charClass) {
-	if (charClass.equals("wizard")) {
+	if (charClass.equals("wizard")) { // total: 60
 	    this.strength = 8; 
 	    this.wisdom = 12; 
 	    this.agility = 6; 
-	    this.deception = 10; 
+	    this.deception = 6; 
 	    this.magic = 16;
-	    this.perception = 10; 
-	} else if (charClass.equals("human")) {
+	    this.perception = 12; 
+	} else if (charClass.equals("human")) { // total: 48
 	    this.strength = 8; 
             this.wisdom	= 8; 
             this.agility = 10; 
             this.deception = 8; 
-            this.magic = 4;
-	    this.perception = 7; 
-	} else if (charClass.equals("elf")) {
-	    this.strength = 6; 
+            this.magic = 6;
+	    this.perception = 8; 
+	} else if (charClass.equals("elf")) { // total: 59
+	    this.strength = 5; 
             this.wisdom	= 11; 
             this.agility = 13; 
-            this.deception = 9; 
+            this.deception = 6; 
 	    this.magic = 14;
 	    this.perception = 10; 
-	} else if (charClass.equals("wook")) {
+	} else if (charClass.equals("wook")) { // total: 56
 	    this.strength = 12;
 	    this.wisdom = 4;
 	    this.agility = 12;
-	    this.deception = 10;
-	    this.magic = 6;
-	    this.perception = 4; 
-	}  else if (charClass.equals("dwarf")) {
+	    this.deception = 14;
+	    this.magic = 8;
+	    this.perception = 6; 
+	}  else if (charClass.equals("dwarf")) { // total: 54
 	    this.strength = 16;
-            this.wisdom = 5;
+            this.wisdom = 6;
             this.agility = 6;
             this.deception = 8;
-            this.magic = 6;
-            this.perception = 9;
+            this.magic = 8;
+            this.perception = 10;
 	} // if/else
     } // setStats
 
