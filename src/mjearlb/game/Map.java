@@ -123,7 +123,8 @@ public class Map {
     } // walkRight
 
     /**
-     * Displays the map.                                                                                         */
+     * Displays the map.
+     */
     public void dispMap() {
         String red = "\u001B[31m";
         String white = "\u001B[0m";
@@ -133,12 +134,16 @@ public class Map {
                 System.out.print(this.map[i][j]);
             } // for                                                                                        
             System.out.println();
-        } // for                                                                                                    // prints up to Player
+        } // for
+	
+	// prints up to Player in player row
         for (int i = 0; i < currCoords[1]; i++) {
             System.out.print(this.map[currCoords[0]][i]);
-        } // for                                                                                                    // prints Player
+        } // for
+	// prints Player
         System.out.print(red + 'P' + white);
-        for (int i = currCoords[1] + 1; i < this.cols; i++) {
+	// prints rest of player row
+	for (int i = currCoords[1] + 1; i < this.cols; i++) {
             System.out.print(this.map[currCoords[0]][i]);
         } // for                                                                                            
         System.out.println();
