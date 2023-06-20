@@ -83,8 +83,8 @@ public class CharacterCreation {
      * Allows user to select the class of their character.
      */
     private static void chooseClass() {
-        System.out.println("\nPlease choose your class: " +
-            "human, wizard, elf");
+        System.out.println("\nPlease choose your class:\n" +
+		   "\thuman, wizard, elf, wook, dwarf");
         classChoice = keyboard.nextLine();
         switch (classChoice) {
         case "human":
