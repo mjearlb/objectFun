@@ -32,4 +32,9 @@ public class Chest<T extends Item> extends LinkedList<T> {
 	} // if/else
     } // add
 
+    @Override
+    public String toString() {
+	return "Contents:\n" + super.toString();
+    } // toString
+
 } // Chest
