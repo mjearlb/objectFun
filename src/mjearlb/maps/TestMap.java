@@ -47,7 +47,7 @@ public class TestMap extends Map {
      * This populates the map.
      */
     private void buildMap() {
-        this.map[0][0] = '1';
+        this.map[1][1] = '1';
 	this.map[3][3] = '0' - 1;
 
 	// walled off area
@@ -83,6 +83,20 @@ public class TestMap extends Map {
 		System.out.println("There is nothing of note in this area");
 	    } // if/else
 	    break;
+	case '1':
+	    if (perception > 10) {
+		System.out.println("There is a chest here");
+		this.map[currCoords[0]][currCoords[1]] = 'C';
+	    } else {
+                System.out.println("There is nothing of note in this area");
+            } // if/else                                                                                                                                                                                   
+            break;
+	case 'D':
+	    System.out.println("There is a door here.");
+	    break;
+	case 'C':
+	    System.out.println("There is a chest here.");	
+            break;
 	default:
 	    System.out.println("There is nothing of note in this area"); 
 	} // switch	
