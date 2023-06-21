@@ -17,7 +17,7 @@ public class Sword extends Weapon {
 
     @Override
     public String toString() {
-	return name + "\nDamage: " + damage; 
+	return this.name + " - Damage: " + this.damage; 
     } // toString
 
 } // Sword
