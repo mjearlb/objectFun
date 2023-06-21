@@ -3,10 +3,33 @@ package mjearlb.game;
 import java.util.LinkedList;
 import mjearlb.game.items.Item;
 
-public class Chest extends LinkedList {
+public class Chest<T extends Item> extends LinkedList<T> {
 
-    public Chest() {
+    private int maxSize; 
 
+    /**
+     * Creates a Chest object, which is a LinkedList bound by {@code size}.
+     *
+     * @param size the size of the chest. 
+     */
+    public Chest(int size) {
+	super();
+	this.maxSize = size; 
     } // Chest
+
+    /**
+     * Adds an {@code item} to the chest, but only after making sure
+     * that it will fit.
+     *
+     * @param item the item to be added. 
+     */
+    @Override
+    public boolean add(T item) {
+	if (this.size() > this.maxSize) {
+	    return super.add(item); 
+	} else {
+	    return false; 
+	} // if/else
+    } // add
 
 } // Chest
