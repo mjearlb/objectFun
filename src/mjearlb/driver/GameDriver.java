@@ -72,10 +72,7 @@ public class GameDriver {
     } // checkChoice
 
     /**
-     * Finds and initializes the player's character object.
-     *
-     * TO DO: figure out how to store and retrieve the player's
-     * character object
+     * Sets the player's player object. 
      */
     private static void getPlayer() {
         boolean choosePlayer = true;
@@ -85,18 +82,8 @@ public class GameDriver {
                 "\"load\" or \"default\":");
             playerChoice = keyboard.nextLine();
             if (playerChoice.equalsIgnoreCase("load")) {
-                boolean validName = false;
-                while (!validName) {
-                    System.out.println("What is the name of your character?");
-                    String playerName = keyboard.nextLine();
-                    try {
-                        player = readFromFile(playerName, Player.class);
-                        validName = true;
-                        choosePlayer = false;
-                    } catch (FileNotFoundException e) {
-                        System.out.println("Error: file not found");
-                    } // catch
-                } // while
+		loadPlayer();
+		choosePlayer = false; 
             } else if (playerChoice.equalsIgnoreCase("default")) {
                 player = new Player();
                 player.setName("Dave");
@@ -108,6 +95,20 @@ public class GameDriver {
         } // while
         System.out.println(player);
     } // getPlayer
+
+    /**
+     * Loads the player's player data from a file. 
+     */
+    private static void loadPlayer() {
+	try {
+	    System.out.println("What is the unique username of your character?");
+	    String playerName = keyboard.nextLine();
+	    player = readFromFile(playerName, Player.class);
+	} catch (FileNotFoundException e) {
+	    System.out.println("Error: file not found.\nPlease enter username again: ");
+	    loadPlayer();
+	} // catch
+    } // loadPlayer
 
     /**
      * Prints the options available to the character.
