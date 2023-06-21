@@ -130,10 +130,16 @@ public class TestMap extends Map {
         } // switch
     } // tileInteract
 
+    /**
+     * Initializes the in-game items. 
+     */
     private void initItems() {
 	dullSword = new Sword("Sword of Dullness", 4); 
     } // initItems
 
+    /**
+     * Initializes the chests used in the game. 
+     */
     private void initChests() {
 	chests = new Chest[1];
 	for (int i = 0; i < chests.length; i++) {
