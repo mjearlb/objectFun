@@ -128,30 +128,47 @@ public class Map {
     public void dispMap() {
         String red = "\u001B[31m";
         String white = "\u001B[0m";
+	String blue = "\u001B[34m";
 	// prints above Player
         for (int i = 0; i < currCoords[0]; i++) {
             for (int j = 0; j < this.cols; j++) {
-                System.out.print(this.map[i][j]);
+		if (this.map[i][j] == 'D' ) {
+                System.out.print(blue + 'D' + white);
+            } else {
+		    System.out.print(this.map[i][j]);
+		} // if/else
             } // for                                                                                        
             System.out.println();
         } // for
 	
 	// prints up to Player in player row
         for (int i = 0; i < currCoords[1]; i++) {
-            System.out.print(this.map[currCoords[0]][i]);
+	    if (this.map[currCoords[0]][i] == 'D' ) {
+		System.out.print(blue + 'D' + white); 
+	    } else {
+		System.out.print(this.map[currCoords[0]][i]);
+	    } // if/else
         } // for
 	// prints Player
         System.out.print(red + 'P' + white);
 	// prints rest of player row
 	for (int i = currCoords[1] + 1; i < this.cols; i++) {
-            System.out.print(this.map[currCoords[0]][i]);
+            if (this.map[currCoords[0]][i] == 'D' ) {
+                System.out.print(blue + 'D' + white);
+            } else {
+                System.out.print(this.map[currCoords[0]][i]);
+            } // if/else  
         } // for                                                                                            
         System.out.println();
 
 	// prints after Player
         for (int i = currCoords[0] + 1; i < this.rows; i++) {
             for (int j = 0; j < this.cols; j++) {
-                System.out.print(this.map[i][j]);
+                if (this.map[i][j] == 'D' ) {
+		    System.out.print(blue + 'D' + white);
+		} else {
+		    System.out.print(this.map[i][j]);
+		} // if/else  
             } // for                                                                                        
             System.out.println();
         } // for                                                                                            
