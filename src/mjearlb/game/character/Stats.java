@@ -78,7 +78,8 @@ public class Stats {
 	    "\n\tAgility: " + this.agility +
 	    "\n\tDeception: " + this.deception +
 	    "\n\tMagic: " + this.magic +
-	    "\n\tPerception: " + this.perception;
+	    "\n\tPerception: " + this.perception +
+	    "\n\tCharisma: " + this.charisma;
     } // toString
 
 } // Stats

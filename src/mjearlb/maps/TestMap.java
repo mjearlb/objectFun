@@ -2,6 +2,7 @@ package mjearlb.maps;
 
 import mjearlb.game.Map;
 import mjearlb.game.character.NonPlayableCharacter;
+import mjearlb.game.character.Stats; 
 
 /**
  * This is an example map implementation.
@@ -47,7 +48,7 @@ public class TestMap extends Map {
      * This populates the map.
      */
     private void buildMap() {
-        this.map[0][0] = '1';
+        this.map[1][1] = '1';
 	this.map[3][3] = '0' - 1;
 
 	// walled off area
@@ -71,20 +72,55 @@ public class TestMap extends Map {
     } // hashNPCs
 
     /**
-     * Returns a description of the surrounding area. 
+     * Returns a description of the surrounding area.
+     *
+     * @param stats the stats of the player. 
      */
-    public void investMap(int perception) {
+    public void investMap(Stats stats) {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
 	case '/':
-	    if (perception > 10) {
-		System.out.println("You can see that there is a secret door in here"); 
+	    if (stats.perception > 10) {
+		System.out.println("You can see that there is a secret door in here");
+		this.map[currCoords[0]][currCoords[1]] = 'D'; 
 	    } else {
 		System.out.println("There is nothing of note in this area");
 	    } // if/else
 	    break;
+	case '1':
+	    if (stats.perception > 10) {
+		System.out.println("There is a chest here");
+		this.map[currCoords[0]][currCoords[1]] = 'C';
+	    } else {
+                System.out.println("There is nothing of note in this area");
+            } // if/else                                                                                                                                                                                   
+            break;
+	case 'D':
+	    System.out.println("There is a door here.");
+	    break;
+	case 'C':
+	    System.out.println("There is a chest here.");	
+            break;
 	default:
 	    System.out.println("There is nothing of note in this area"); 
 	} // switch	
     } // investMap
+
+    /**
+     * Interacts with the current tile.
+     *
+     * @param stats the stats of the player.
+     */ 
+    public void tileInteract(Stats stats) {
+	switch (this.map[currCoords[0]][currCoords[1]]) {
+	case 'D':
+            System.out.println("You enter the door.");
+            break;
+        case 'C':
+            System.out.println("You open the chest.");
+            break;
+        default:
+            System.out.println("There is nothing for you to interact with.");
+        } // switch
+    } // tileInteract
 
 } // TestMap

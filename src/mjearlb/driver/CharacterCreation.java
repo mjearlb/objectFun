@@ -86,19 +86,23 @@ public class CharacterCreation {
         System.out.println("\nPlease choose your class:\n" +
 		   "\thuman, wizard, elf, wook, dwarf");
         classChoice = keyboard.nextLine();
+
         switch (classChoice) {
         case "human":
-            player.stats = new Stats("human");
-            player.charClass = "human";
+	    player.setClass(classChoice);
             break;
         case "wizard":
-            player.stats = new Stats("wizard");
-            player.charClass = "wizard";
+	    player.setClass(classChoice);
             break;
         case "elf":
-            player.stats = new Stats("elf");
-            player.charClass = "elf";
+	    player.setClass(classChoice);
             break;
+	case "wook":
+	    player.setClass(classChoice);
+	    break;
+	case "dwarf":
+	    player.setClass(classChoice);
+	    break; 
         default:
             System.out.println("Error: not a class");
             chooseClass();
