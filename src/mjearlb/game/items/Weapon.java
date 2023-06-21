@@ -6,8 +6,15 @@ public abstract class Weapon extends Item {
 
     int damage; 
 
-    public Weapon() {
-	super(); 
+    /**
+     * Creates a Weapon object. 
+     *
+     * @param name the name of the {@code Weapon}
+     * @param damage the amount of damage the {@code Weapon} does. 
+     */
+    public Weapon(String name, int damage) {
+	super(name);
+	this.damage = damage; 
     } // Weapon
 
 } // Weapon
