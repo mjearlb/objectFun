@@ -2,7 +2,10 @@ package mjearlb.maps;
 
 import mjearlb.game.Map;
 import mjearlb.game.character.NonPlayableCharacter;
-import mjearlb.game.character.Stats; 
+import mjearlb.game.character.Stats;
+import mjearlb.game.items.Item; 
+import mjearlb.game.Chest;
+import mjearlb.game.items.Sword; 
 
 /**
  * This is an example map implementation.
@@ -15,6 +18,8 @@ public class TestMap extends Map {
     // hashmap public access global variable.
 
     NonPlayableCharacter[] npcs;
+    Chest<Item>[] chests;
+    Sword dullSword; 
 
     /**
      * This constructs the TestMap object and makes it.
@@ -22,6 +27,8 @@ public class TestMap extends Map {
     public TestMap() {
         super(10, 10); // should set it to an empty map of size (rows, cols)
         initNPCs();
+	initItems(); 
+	initChests();
         buildMap();
         hashNPCs();
         this.currCoords = new int[] {1,1};
@@ -116,11 +123,29 @@ public class TestMap extends Map {
             System.out.println("You enter the door.");
             break;
         case 'C':
-            System.out.println("You open the chest.");
+            System.out.println("You open the chest.\n" + chests[0]);
             break;
         default:
             System.out.println("There is nothing for you to interact with.");
         } // switch
     } // tileInteract
+
+    /**
+     * Initializes the in-game items. 
+     */
+    private void initItems() {
+	dullSword = new Sword("Sword of Dullness", 4); 
+    } // initItems
+
+    /**
+     * Initializes the chests used in the game. 
+     */
+    private void initChests() {
+	chests = new Chest[1];
+	for (int i = 0; i < chests.length; i++) {
+	    chests[i] = new Chest<Item>(10);
+	    chests[i].add(dullSword); 
+	} // for	
+    } // initChests
 
 } // TestMap

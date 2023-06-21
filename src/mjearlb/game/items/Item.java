@@ -7,40 +7,23 @@ package mjearlb.game.items;
 public abstract class Item extends Object {
 
     private int id;
+    public String name; 
 
     /**
      * Creates an Item Object with no id. .
      */
-    public Item() {
+    public Item(String name) {
         super();
+	this.name = name; 
     } // Item
 
     /**
-     * Creates an Item Object.
+     * Allows for setting of the name of the {@code Item}. 
      *
-     * @param id the id of the item.
+     * @param name the name of the {@code Item}.
      */
-    public Item(int id) {
-        super();
-        this.id = id;
-    } // Item
-
-    /**
-     * Allows for changing of the item id.
-     *
-     * @param id the id of the item.
-     */
-    public void setId(int id) {
-        this.id = id;
-    } // setId
-
-    /**
-     * Allows for retrieval of the item's id.
-     *
-     * @return the {@code id} of the item.
-     */
-    public int getId() {
-        return this.id;
-    } // getId
+    public void setName(String name) {
+	this.name = name; 
+    } // setName
 
 } // Item
