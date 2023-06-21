@@ -77,7 +77,8 @@ public class TestMap extends Map {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
 	case '/':
 	    if (perception > 10) {
-		System.out.println("You can see that there is a secret door in here"); 
+		System.out.println("You can see that there is a secret door in here");
+		this.map[currCoords[0]][currCoords[1]] = 'D'; 
 	    } else {
 		System.out.println("There is nothing of note in this area");
 	    } // if/else
