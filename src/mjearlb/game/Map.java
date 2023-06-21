@@ -59,11 +59,10 @@ public class Map {
      * {@code false} if not.
      */
     private boolean canWalk(char tile) {
-	if (tile >= 'A' && tile <= 'Z') {
+	if (tile == 'W') {
 	    return false; 
 	} // if
         return true;
-        // for now, walkable spaces will be positive, negative will be walls, buildings, etc.
     } // canWalk
 
     /**
@@ -129,12 +128,16 @@ public class Map {
         String red = "\u001B[31m";
         String white = "\u001B[0m";
 	String blue = "\u001B[34m";
+	String green = "\u001B[32m"; 
+	
 	// prints above Player
         for (int i = 0; i < currCoords[0]; i++) {
             for (int j = 0; j < this.cols; j++) {
 		if (this.map[i][j] == 'D' ) {
-                System.out.print(blue + 'D' + white);
-            } else {
+		    System.out.print(blue + 'D' + white);
+		} else if (this.map[i][j] == 'C' ) {
+                    System.out.print(green + 'C' + white);
+                } else {
 		    System.out.print(this.map[i][j]);
 		} // if/else
             } // for                                                                                        
@@ -145,16 +148,22 @@ public class Map {
         for (int i = 0; i < currCoords[1]; i++) {
 	    if (this.map[currCoords[0]][i] == 'D' ) {
 		System.out.print(blue + 'D' + white); 
-	    } else {
+	    } else if (this.map[currCoords[0]][i] == 'C' ) {
+                System.out.print(green + 'C' + white);
+            } else {
 		System.out.print(this.map[currCoords[0]][i]);
 	    } // if/else
         } // for
+
 	// prints Player
         System.out.print(red + 'P' + white);
+	
 	// prints rest of player row
 	for (int i = currCoords[1] + 1; i < this.cols; i++) {
             if (this.map[currCoords[0]][i] == 'D' ) {
                 System.out.print(blue + 'D' + white);
+            } else if (this.map[currCoords[0]][i] == 'C' ) {
+                System.out.print(green + 'C' + white);
             } else {
                 System.out.print(this.map[currCoords[0]][i]);
             } // if/else  
@@ -166,7 +175,9 @@ public class Map {
             for (int j = 0; j < this.cols; j++) {
                 if (this.map[i][j] == 'D' ) {
 		    System.out.print(blue + 'D' + white);
-		} else {
+		} else if (this.map[i][j] == 'C' ) {
+                    System.out.print(green + 'C' + white);
+                } else {
 		    System.out.print(this.map[i][j]);
 		} // if/else  
             } // for                                                                                        
