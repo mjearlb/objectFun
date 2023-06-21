@@ -26,6 +26,7 @@ public class GameDriver {
         playing = true;
         getPlayer();
         initObjects();
+	printHelp(); 
         while (playing) {
             choice = keyboard.nextLine();
             checkChoice();
@@ -65,6 +66,9 @@ public class GameDriver {
             break;
 	case "inv":
 	    investigate();
+	    break;
+	case "int":
+	    interact();
 	    break; 
         default:
             System.out.println("Error: not a valid option");
@@ -120,7 +124,8 @@ public class GameDriver {
             "a: moves left one square\n" +
             "d: moves right one square\n" +
             "map: displays the map\n" +
-	    "inv: investigate the current tile");
+	    "inv: investigate the current tile\n" + 
+	    "int: interact with the current tile");
     } // printHelp
 
     /**
@@ -167,7 +172,14 @@ public class GameDriver {
      * Allows players to investigate their current location on the map. 
      */
     private static void investigate() {
-	map.investMap(player.stats.perception); 
+	map.investMap(player.stats); 
     } // investigate
+
+    /**
+     * Allows players to interact with their current tile on the map. 
+     */
+    private static void interact() {
+	map.tileInteract(player.stats); 
+    } // interact
 
 } // GameDriver
