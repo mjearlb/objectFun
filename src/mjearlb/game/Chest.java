@@ -26,9 +26,9 @@ public class Chest<T extends Item> extends LinkedList<T> {
     @Override
     public boolean add(T item) {
 	if (this.size() > this.maxSize) {
-	    return super.add(item); 
-	} else {
 	    return false; 
+	} else {
+	    return super.add(item); 
 	} // if/else
     } // add
 
