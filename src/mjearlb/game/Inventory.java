@@ -7,73 +7,42 @@ import mjearlb.game.items.Item;
  * Inventory will be something that each character has
  * to store their items.
  */
-public class Inventory {
+public class Inventory<T extends Item> extends LinkedList<T> {
 
-    private LinkedList<Item> items;
-
-    /**
-     * Thrown when the charater's inventory is full.
-     */
-    public class InventoryFullException extends Exception {
-
-        /**
-         * Creates the InventoryFullException object.
-         *
-         * @param message the message displayed when the exception is thrown.
-         */
-        public InventoryFullException(String message) {
-            super(message);
-        } // InventoryFullException
-    } // InventoryFullException
+    private int maxSize; 
 
     /**
-     * Constructs the Inventory object.
+     * Constructs the Inventory object, a LinkedList bound by {@code maxSize}.
+     *
+     * @param size the size of the Inventory. 
      */
-    public Inventory() {
-        this.items = new LinkedList<Item>();
+    public Inventory(int size) {
+	super();
+	this.maxSize = size; 
     } // Inventory
 
     /**
-     * Adds one item to the inventory, capping it at
-     * 10 items.
-     *
-     * @param item the item we are adding.
+     * Adds an {@code item} to the chest, but only after making sure
+     * that it will fit.
+     * 
+     * @param item the item to be added.
      */
-    public void addItem(Item item) {
-        if (items.size() >= 10) {
-            System.out.println("Error: Cannot add more than 10 items to the inventory");
+    @Override
+    public boolean add(T item) {
+        if (this.size() > this.maxSize) {
+            return false;
         } else {
-            this.items.add(item);
+            return super.add(item);
         } // if/else
-    } // addItem
-
-    /**
-     * Removes an item from the inventory.
-     *
-     * @param item the item to remove
-     */
-    public void removeItem(Item item) {
-        this.items.remove(item);
-    } // removeNode
-
-    /**
-     * Returns the requested item.
-     *
-     * @param index the index of the item being requested.
-     * @return the item at the specified index.
-     * @throws IndexOutOfBoundsException if the index is out of range
-     */
-    public Item getItem(int index) throws IndexOutOfBoundsException {
-        return this.items.get(index);
-    } // getItem
-
+    } // add
+	
     /**
      * Allows for easy display of all objects in inventory.
      *
      * @return the Inventory contents in a String.
      */
     public String toString() {
-        return "Inventory: " + this.items.toString();
+        return "Inventory: " + super.toString();
     } // toString
 
 } // Inventory
