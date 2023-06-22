@@ -1,6 +1,7 @@
 package mjearlb.game.character;
 
 import mjearlb.game.character.Stats;
+import mjearlb.game.items.Item; 
 
 /**
  * Basic character outline.
@@ -12,14 +13,18 @@ public abstract class Character {
     private String name;
     public String charClass;
     public Stats stats;
-    public int money; 
+    public int money;
+    public Inventory<Item> inventory; 
 
     /**
      * Creates the character object.
+     *
+     * @param size the size of the Character's inventory. 
      */
-    public Character() {
-	this.money = 0; 
-    } // Character
+    public Character(int size) {
+	this.money = 0;
+	this.inventory = new Inventory<Item>(10); 
+	    } // Character
 
     @Override
     public String toString() {
@@ -99,5 +104,14 @@ public abstract class Character {
     public void addMoney(int amount) {
 	this.money += amount; 
     } // addMoney
+
+    /**
+     * Changes the character's inventory size. 
+     *
+     * @param size the new size of the inventory. 
+     */
+    public void changeInvSize(int size) {
+	this.inventory.maxSize = size; 
+    } // changeInvSize
 
 } // Character
