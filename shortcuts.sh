@@ -16,7 +16,7 @@ echo emacs src/mjearlb/game/character/NonPlayableCharacter.java
 
 echo
 
-echo emacs src/mjearlb/game/Map.java
+echo emacs src/mjearlb/maps/Map.java
 
 echo
 
