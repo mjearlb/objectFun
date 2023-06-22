@@ -1,7 +1,8 @@
 package mjearlb.game.character;
 
 import mjearlb.game.character.Stats;
-import mjearlb.game.items.Item; 
+import mjearlb.game.items.Item;
+import mjearlb.game.Inventory; 
 
 /**
  * Basic character outline.
@@ -104,14 +105,5 @@ public abstract class Character {
     public void addMoney(int amount) {
 	this.money += amount; 
     } // addMoney
-
-    /**
-     * Changes the character's inventory size. 
-     *
-     * @param size the new size of the inventory. 
-     */
-    public void changeInvSize(int size) {
-	this.inventory.maxSize = size; 
-    } // changeInvSize
 
 } // Character
