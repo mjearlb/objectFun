@@ -69,6 +69,9 @@ public class GameDriver {
 	    break;
 	case "int":
 	    interact();
+	    break;
+	case "inventory":
+	    System.out.println(player.inventory);
 	    break; 
         default:
             System.out.println("Error: not a valid option");
@@ -125,7 +128,8 @@ public class GameDriver {
             "d: moves right one square\n" +
             "map: displays the map\n" +
 	    "inv: investigate the current tile\n" + 
-	    "int: interact with the current tile");
+	    "int: interact with the current tile\n" +
+	    "inventory: displays player's inventory");
     } // printHelp
 
     /**
@@ -179,7 +183,7 @@ public class GameDriver {
      * Allows players to interact with their current tile on the map. 
      */
     private static void interact() {
-	map.tileInteract(player.stats); 
+	map.tileInteract(player); 
     } // interact
 
 } // GameDriver
