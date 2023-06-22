@@ -1,4 +1,21 @@
-    decide which int's map to what (-1 is impassable wall, 0 is nothing.
-    other numbers couls correspond to people's id's? though i would have to make positives impassable then and negatives free to roam space)
+- POSSIBLY place Inventory and Chest classes into directory called containers?
+    ---> POSSIBLY make Chest extend Inventory? OR make both extend new class
+         called containers. 
 
-    implement player movement for left and right
+- create key for deciding what objects are what (which are passable, which are not)
+
+- Create classes for the wearables (helmet, chestplate, pants, boots, weapon)
+    ---> ALSO: make Weapon extend wearable(?)
+
+- Create class for money(?) 
+    ---> Maybe just make that an int in the Character or Player class
+
+- store equiment in equipment slots (helmet, chestplate, pants, boots, weapon) - takes
+out of inventory and puts in equip-storage. 
+
+- create new map for different room 
+    ---> ALSO: figure out how to make doors work
+
+- Flesh out some NPC's
+
+- learn how to use a HashMap to map NPC's to different tile markers
