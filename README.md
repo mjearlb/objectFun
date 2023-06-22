@@ -13,4 +13,6 @@ Now implemented:
 - Users can run ./createCharacter and create a basic character. 
 Their custom character will be saved into the resources directory.
 - Users can then run ./runGame and run the game driver. Current game 
-implementation allows the user to walk around the map. 
+implementation allows the user to walk around the map and have 
+limited interactions with their surroundings. They also have access
+to a minimap that updated to display their current whereabouts. 
