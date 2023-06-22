@@ -1,6 +1,6 @@
 package mjearlb.maps;
 
-import mjearlb.game.Map;
+import mjearlb.maps.Map;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.game.character.Stats;
 import mjearlb.game.items.Item; 

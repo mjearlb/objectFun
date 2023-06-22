@@ -16,7 +16,7 @@ echo emacs src/mjearlb/game/character/NonPlayableCharacter.java
 
 echo
 
-echo emacs src/mjearlb/game/Map.java
+echo emacs src/mjearlb/maps/Map.java
 
 echo
 
@@ -33,6 +33,10 @@ echo emacs src/mjearlb/game/items/Weapon.java
 echo
 
 echo emacs src/mjearlb/game/items/Sword.java
+
+echo
+
+echo emacs src/mjearlb/game/items/wearables/Wearable.java
 
 echo
 

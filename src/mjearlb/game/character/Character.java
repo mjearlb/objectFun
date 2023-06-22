@@ -12,11 +12,13 @@ public abstract class Character {
     private String name;
     public String charClass;
     public Stats stats;
+    public int money; 
 
     /**
      * Creates the character object.
      */
     public Character() {
+	this.money = 0; 
     } // Character
 
     @Override
@@ -88,5 +90,14 @@ public abstract class Character {
 	this.charClass = charClass; 
         this.stats = new Stats(charClass);
     } // setClass
+
+    /**
+     * Adds money to the character's balance.
+     *
+     * @param amount the amount of money the character has. 
+     */
+    public void addMoney(int amount) {
+	this.money += amount; 
+    } // addMoney
 
 } // Character

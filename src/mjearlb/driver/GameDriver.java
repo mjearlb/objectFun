@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 import mjearlb.maps.TestMap;
-import mjearlb.game.Map;
+import mjearlb.maps.Map;
 import mjearlb.game.character.Player;
 import mjearlb.game.character.Stats;
 import mjearlb.game.character.NonPlayableCharacter;
