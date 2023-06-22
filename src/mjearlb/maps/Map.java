@@ -1,4 +1,4 @@
-package mjearlb.game;
+package mjearlb.maps;
 
 /**
  * Creates a Map that will be read by the driver class.
