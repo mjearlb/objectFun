@@ -5,7 +5,9 @@ import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.game.character.Stats;
 import mjearlb.game.items.Item; 
 import mjearlb.game.Chest;
-import mjearlb.game.items.Sword; 
+import mjearlb.game.items.Sword;
+import mjearlb.game.character.Player;
+import mjearlb.game.Inventory; 
 
 /**
  * This is an example map implementation.
@@ -43,7 +45,7 @@ public class TestMap extends Map {
         int id = 5000;
         npcs = new NonPlayableCharacter[5];
         for (int i = 0; i < 5; i++) {
-            npcs[i] = new NonPlayableCharacter();
+            npcs[i] = new NonPlayableCharacter(5);
             npcs[i].setName(names[i]);
             npcs[i].setId(id);
             id++;
@@ -123,7 +125,7 @@ public class TestMap extends Map {
             System.out.println("You enter the door.");
             break;
         case 'C':
-            System.out.println("You open the chest.\n" + chests[0]);
+            System.out.println("You open the chest.\n" + chests[0] + "\nTake an item?");
             break;
         default:
             System.out.println("There is nothing for you to interact with.");
@@ -147,5 +149,18 @@ public class TestMap extends Map {
 	    chests[i].add(dullSword); 
 	} // for	
     } // initChests
+
+    /**
+     * Allows user to move an {@code item} from a chest to                                                                                                                                                 
+     * their inventory.                                                                                                                                                                                    
+     *                                                                                                                                                                                                     
+     * @param player the player.
+     * @param chest the chest being accessed. 
+     * @param item the item.
+     */
+    public void takeFromChest(Player player, Chest chest, Item item) {
+        chest.remove(item);
+	player.inventory.add(item); 
+    } // takeFromChest  
 
 } // TestMap
