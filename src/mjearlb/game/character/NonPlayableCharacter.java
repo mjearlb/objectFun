@@ -7,8 +7,13 @@ import mjearlb.game.character.Character;
  */
 public class NonPlayableCharacter extends Character {
 
-    public NonPlayableCharacter() {
-	super();
+    /**
+     * Creates an NPC. 
+     *
+     * @param invSize the size of the NPC's Inventory
+     */
+    public NonPlayableCharacter(int invSize) {
+	super(invSize);
 	this.isPlayer = false;
     } // NonPlayableCharacter
 
