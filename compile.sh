@@ -22,7 +22,7 @@ javac -d bin -cp bin src/mjearlb/game/Inventory.java
 
 javac -d bin -cp bin src/mjearlb/game/Chest.java
 
-javac -d bin src/mjearlb/game/Map.java
+javac -d bin src/mjearlb/maps/Map.java
 
 javac -d bin -cp bin src/mjearlb/maps/TestMap.java
 
