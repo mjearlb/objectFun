@@ -15,6 +15,7 @@ public abstract class Character {
     public String charClass;
     public Stats stats;
     public int money;
+    public int defense; 
     public Inventory<Item> inventory; 
 
     /**
@@ -24,9 +25,10 @@ public abstract class Character {
      */
     public Character(int size) {
 	this.money = 0;
-	this.inventory = new Inventory<Item>(10); 
-	    } // Character
-
+	this.inventory = new Inventory<Item>(10);
+	this.defense = 0; // defense is decided by the clothing that the player is wearing
+    } // Character
+    
     @Override
     public String toString() {
         return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\nClass: " + charClass
