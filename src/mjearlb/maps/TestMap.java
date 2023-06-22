@@ -1,5 +1,7 @@
 package mjearlb.maps;
 
+import java.util.Scanner;
+
 import mjearlb.maps.Map;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.game.character.Stats;
@@ -19,6 +21,7 @@ public class TestMap extends Map {
     // where each int on map refers to the NPC. Will need to make the
     // hashmap public access global variable.
 
+    private static Scanner keyboard = new Scanner(System.in);
     NonPlayableCharacter[] npcs;
     Chest<Item>[] chests;
     Sword dullSword; 
@@ -117,15 +120,18 @@ public class TestMap extends Map {
     /**
      * Interacts with the current tile.
      *
-     * @param stats the stats of the player.
+     * @param player the player.
      */ 
-    public void tileInteract(Stats stats) {
+    public void tileInteract(Player player) {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
 	case 'D':
             System.out.println("You enter the door.");
             break;
         case 'C':
-            System.out.println("You open the chest.\n" + chests[0] + "\nTake an item?");
+            System.out.println("You open the chest.\n" + chests[0] + "\nTake an item? (y/n)");
+	    if (keyboard.nextLine().equals("y")) {
+	        takeFromChest(player, chests[0], dullSword); 
+	    } // if 
             break;
         default:
             System.out.println("There is nothing for you to interact with.");
