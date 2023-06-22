@@ -45,4 +45,13 @@ public class Inventory<T extends Item> extends LinkedList<T> {
         return "Inventory: " + super.toString();
     } // toString
 
+    /**
+     * Changes the character's inventory size.
+     *
+     * @param size the new size of the inventory.
+     */
+    public void changeInvSize(int size) {
+        this.maxSize = size;
+    } // changeInvSize  
+
 } // Inventory
