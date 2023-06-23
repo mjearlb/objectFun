@@ -43,7 +43,7 @@ public class Player extends Character {
 
     @Override
     public String toString() {
-	return super.toString() + "\nEquipment: " + equipment; 
+	return super.toString() + "\nEquipment: " + this.equipment; 
     } // toString
 
 } // Player
