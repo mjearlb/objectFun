@@ -6,10 +6,10 @@ import mjearlb.maps.Map;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.game.character.Stats;
 import mjearlb.game.items.Item; 
-import mjearlb.game.Chest;
+import mjearlb.game.containers.Chest;
 import mjearlb.game.items.Sword;
 import mjearlb.game.character.Player;
-import mjearlb.game.Inventory; 
+import mjearlb.game.containers.Inventory; 
 
 /**
  * This is an example map implementation.
@@ -24,7 +24,7 @@ public class TestMap extends Map {
     private static Scanner keyboard = new Scanner(System.in);
     NonPlayableCharacter[] npcs;
     Chest<Item>[] chests;
-    Sword dullSword; 
+    Sword dullSword;
 
     /**
      * This constructs the TestMap object and makes it.
