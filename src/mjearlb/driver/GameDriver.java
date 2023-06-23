@@ -93,8 +93,8 @@ public class GameDriver {
 		choosePlayer = false; 
             } else if (playerChoice.equalsIgnoreCase("default")) {
                 player = new Player();
-                player.setName("Dave");
-		player.setClass("human"); 
+                player.setName("Icculus");
+		player.setClass("wizard"); 
                 choosePlayer = false;
             } else {
                 System.out.println("Error: invalid choice!");
