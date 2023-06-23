@@ -1,6 +1,8 @@
 package mjearlb.game.character;
 
 import mjearlb.game.character.Character;
+import mjearlb.game.items.wearables.Wearable;
+import mjearlb.game.containers.Inventory; 
 
 /**
  * Creates Player object.
