@@ -2,7 +2,7 @@ package mjearlb.game.character;
 
 import mjearlb.game.character.Stats;
 import mjearlb.game.items.Item;
-import mjearlb.game.Inventory; 
+import mjearlb.game.containers.Inventory; 
 
 /**
  * Basic character outline.
