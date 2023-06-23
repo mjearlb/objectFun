@@ -9,7 +9,7 @@ import mjearlb.game.containers.Inventory;
  */
 public class Player extends Character {
 
-    Inventory<Wearable> equipment; 
+    public Inventory<Wearable> equipment; 
 
     /**
      * Creates an instance of the Player character.
@@ -40,5 +40,10 @@ public class Player extends Character {
 	this.equipment.remove(item);
 	this.inventory.add(item);
     } // unwearItem
+
+    @Override
+    public String toString() {
+	return super.toString() + "\nEquipment: " + equipment; 
+    } // toString
 
 } // Player
