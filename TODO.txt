@@ -1,7 +1,3 @@
-- POSSIBLY place Inventory and Chest classes into directory called containers?
-    ---> POSSIBLY make Chest extend Inventory? OR make both extend new class
-         called containers. 
-
 - create key for deciding what objects are what (which are passable, which are not)
 
 - Create classes for the wearables (helmet, chestplate, pants, boots, weapon)
