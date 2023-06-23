@@ -30,7 +30,7 @@ public class Inventory<T extends Item> extends Container<T> {
 
     @Override
     public String toString() {
-        return "Inventory:\n" + super.toString();
+        return super.toString();
     } // toString 
 
 } // Inventory
