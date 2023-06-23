@@ -32,7 +32,7 @@ public abstract class Character {
     @Override
     public String toString() {
         return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\nClass: " + charClass
-            + "\n" + stats;
+            + "\n" + stats + "\nInventory: " + inventory;
     } // toString
 
     /**
