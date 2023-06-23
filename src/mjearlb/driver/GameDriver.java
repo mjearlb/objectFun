@@ -70,8 +70,8 @@ public class GameDriver {
 	case "int":
 	    interact();
 	    break;
-	case "inventory":
-	    System.out.println(player.inventory);
+	case "me":
+	    System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
 	    break; 
         default:
             System.out.println("Error: not a valid option");
@@ -129,7 +129,7 @@ public class GameDriver {
             "map: displays the map\n" +
 	    "inv: investigate the current tile\n" + 
 	    "int: interact with the current tile\n" +
-	    "inventory: displays player's inventory");
+	    "me: displays player's inventory and equipment");
     } // printHelp
 
     /**
