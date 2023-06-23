@@ -31,7 +31,7 @@ public abstract class Character {
     
     @Override
     public String toString() {
-        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\nClass: " + charClass
+        return "Name: " + name + "\nMoney: " + money + "\nClass: " + charClass
             + "\n" + stats + "\nInventory: " + inventory;
     } // toString
 
