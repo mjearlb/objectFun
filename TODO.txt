@@ -1,3 +1,6 @@
+- IMPORTANT: fix loading player data from file. There is an issue with the equipment
+  	     variable.
+
 - create key for deciding what objects are what (which are passable, which are not)
 
 - Create classes for the wearables (helmet, chestplate, pants, boots, weapon)
