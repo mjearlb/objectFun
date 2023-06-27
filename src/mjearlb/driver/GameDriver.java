@@ -197,9 +197,8 @@ public class GameDriver {
     private static void equipItem() {
 	System.out.println("What item would you like to equip?");
 	System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
-	String item = keyboard.nextLine(); 
-	player.inventory.remove(map.rustyHelm);
-        player.equipment.add(map.rustyHelm);
+	String item = keyboard.nextLine();
+	player.equipWearable(map.rustyHelm); 
     } // equipItem
 
 } // GameDriver
