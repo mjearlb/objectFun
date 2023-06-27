@@ -72,6 +72,9 @@ public class GameDriver {
 	    break;
 	case "me":
 	    System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
+	    break;
+	case "equip":
+	    equipItem(); 
 	    break; 
         default:
             System.out.println("Error: not a valid option");
@@ -129,7 +132,8 @@ public class GameDriver {
             "map: displays the map\n" +
 	    "inv: investigate the current tile\n" + 
 	    "int: interact with the current tile\n" +
-	    "me: displays player's inventory and equipment");
+	    "me: displays player's inventory and equipment\n" +
+	    "equip: equip a piece of equipment from current inventory");
     } // printHelp
 
     /**
@@ -185,5 +189,17 @@ public class GameDriver {
     private static void interact() {
 	map.tileInteract(player); 
     } // interact
+
+    /**
+     *
+     *
+     */
+    private static void equipItem() {
+	System.out.println("What item would you like to equip?");
+	System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
+	String item = keyboard.nextLine(); 
+	player.inventory.remove(map.rustyHelm);
+        player.equipment.add(map.rustyHelm);
+    } // equipItem
 
 } // GameDriver
