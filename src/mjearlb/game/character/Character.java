@@ -10,7 +10,7 @@ import mjearlb.game.containers.Inventory;
 public abstract class Character {
 
     protected boolean isPlayer;
-    private String name;
+    public String name;
     public String charClass;
     public Stats stats;
     public int money;
