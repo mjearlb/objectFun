@@ -26,16 +26,17 @@ public class TestMap extends Map {
     NonPlayableCharacter[] npcs;
     Chest<Item>[] chests;
     public Sword dullSword;
-    public Helmet rustyHelm; 
+    public Helmet rustyHelm;
+    public Sword claireSword; 
     
     /**
      * This constructs the TestMap object and makes it.
      */
     public TestMap() {
         super(10, 10); // should set it to an empty map of size (rows, cols)
-        initNPCs();
 	initItems(); 
 	initChests();
+	initNPCs(); 
         buildMap();
         hashNPCs();
         this.currCoords = new int[] {1,1};
@@ -49,10 +50,11 @@ public class TestMap extends Map {
         String[] names = {"Tim", "Nathan", "Claire", "Kevin", "Supa Mike"};
         npcs = new NonPlayableCharacter[5];
         for (int i = 0; i < 5; i++) {
-            npcs[i] = new NonPlayableCharacter(5);
+            npcs[i] = new NonPlayableCharacter(5, false);
             npcs[i].setName(names[i]);
         } // for
-
+	npcs[2].setSells(true);
+	npcs[2].inventory.add(claireSword); 
     } // initNPCs
 
     /**
@@ -60,8 +62,9 @@ public class TestMap extends Map {
      */
     private void buildMap() {
         this.map[1][7] = '1';
-	this.map[3][3] = '0' - 1;
-	this.map[0][0] = 'C'; 
+	this.map[3][3] = '2';
+	this.map[0][0] = 'C';
+	this.map[7][7] = 'k'; 
 
 	// walled off area
 	this.map[4][4] = 'W';
@@ -90,7 +93,7 @@ public class TestMap extends Map {
      */
     public void investMap(Stats stats) {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
-	case '/':
+	case '1':
 	    if (stats.perception > 10) {
 		System.out.println("You can see that there is a secret door in here");
 		this.map[currCoords[0]][currCoords[1]] = 'D'; 
@@ -98,7 +101,7 @@ public class TestMap extends Map {
 		System.out.println("There is nothing of note in this area");
 	    } // if/else
 	    break;
-	case '1':
+	case '2':
 	    if (stats.perception > 10) {
 		System.out.println("There is a chest here");
 		this.map[currCoords[0]][currCoords[1]] = 'C';
@@ -112,6 +115,9 @@ public class TestMap extends Map {
 	case 'C':
 	    System.out.println("There is a chest here.");	
             break;
+	case 'k':
+	    System.out.println("There is a person standing here. They seem friendly enough to approach."); 
+	    break; 
 	default:
 	    System.out.println("There is nothing of note in this area"); 
 	} // switch	
@@ -131,7 +137,7 @@ public class TestMap extends Map {
 	    /* NOTE: This is to be changed as it is a very bad way to distinguish between the chests.
 	       TODO: decide if Hashmap would work for this?
 	     */ 
-	    if (currCoords[0] == 1 && currCoords[1] == 7) {
+	    if (currCoords[0] == 3 && currCoords[1] == 3) {
 		System.out.println("You open the chest.\n" + chests[0] + "\nTake an item? (y/n)");
 		if (keyboard.nextLine().equals("y")) {
 		    takeFromChest(player, chests[0], dullSword); 
@@ -143,6 +149,9 @@ public class TestMap extends Map {
                 } // if
 	    } // else/if
             break;
+	case 'k':
+	    interactNPC(npcs[2]);
+	    break;
         default:
             System.out.println("There is nothing for you to interact with.");
         } // switch
@@ -153,6 +162,7 @@ public class TestMap extends Map {
      */
     private void initItems() {
 	dullSword = new Sword("Sword of Dullness", 4);
+	claireSword = new Sword("Claire's Sword", 6); 
 	rustyHelm = new Helmet("Helmet of Rustiness", 2); 
     } // initItems
 
@@ -180,5 +190,17 @@ public class TestMap extends Map {
         chest.remove(item);
 	player.inventory.add(item); 
     } // takeFromChest
+
+    /**
+     * Allows the user to interact with an NPC character.
+     *
+     * @param npc the NPC being interacted with.
+     */
+    public void interactNPC(NonPlayableCharacter npc) {
+	System.out.println("Hi! I am " + npc.name + "!");
+	if (npc.sells == true) {
+	    System.out.println("I have the following wares to sell:\n" + npc.inventory); 
+	} // if
+    } // interactNPC
 
 } // TestMap
