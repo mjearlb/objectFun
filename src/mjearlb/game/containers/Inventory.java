@@ -20,7 +20,8 @@ public class Inventory<T extends Item> extends Container<T> {
     } // Inventory
 	
     /**
-     * Changes the character's inventory size.
+     * Changes the character's inventory size. Planned use is
+     * if the player picks up a bag or something. 
      *
      * @param size the new size of the inventory.
      */
