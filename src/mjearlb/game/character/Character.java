@@ -9,7 +9,6 @@ import mjearlb.game.containers.Inventory;
  */
 public abstract class Character {
 
-    private int id;
     protected boolean isPlayer;
     private String name;
     public String charClass;
@@ -26,7 +25,7 @@ public abstract class Character {
     public Character(int size) {
 	this.money = 0;
 	this.inventory = new Inventory<Item>(10);
-	this.defense = 0; // defense is decided by the clothing that the player is wearing
+	this.defense = 0; // defense is decided by the clothing that the character is wearing
     } // Character
     
     @Override
@@ -34,24 +33,6 @@ public abstract class Character {
         return "Name: " + name + "\nMoney: " + money + "\nClass: " + charClass
             + "\n" + stats + "\nInventory: " + inventory;
     } // toString
-
-    /**
-     * Allows access to the id of the character.
-     *
-     * @return the id of the character.
-     */
-    public int getId() {
-        return this.id;
-    } // getId
-
-    /**
-     * Sets the value of the character id.
-     *
-     * @param id the id number of the character being created.
-     */
-    public void setId(int id) {
-        this.id = id;
-    } // setId
 
     /**
      * Allows game to see whether character is a player or not.
