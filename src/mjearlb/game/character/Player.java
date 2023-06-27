@@ -2,15 +2,16 @@ package mjearlb.game.character;
 
 import mjearlb.game.character.Character;
 import mjearlb.game.items.wearables.Wearable;
-import mjearlb.game.containers.Inventory; 
+import mjearlb.game.containers.Inventory;
+import mjearlb.game.items.Item; 
 
 /**
  * Creates Player object.
  */
 public class Player extends Character {
 
-    public Inventory<Wearable> equipment; 
-
+    public Inventory<Wearable> equipment;
+    
     /**
      * Creates an instance of the Player character.
      * Defaults to 10 inventory slots. 
@@ -18,7 +19,7 @@ public class Player extends Character {
     public Player() {
 	super(10); 
 	this.isPlayer = true;
-	equipment = new Inventory<Wearable>(4); 
+	this.equipment = new Inventory<Wearable>(4); 
     } // Player
 
     /**
