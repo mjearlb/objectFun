@@ -14,6 +14,8 @@ javac -d bin -cp bin src/mjearlb/game/character/Character.java
 
 javac -d bin -cp bin src/mjearlb/game/items/wearables/Wearable.java
 
+javac -d bin -cp bin src/mjearlb/game/items/wearables/Helmet.java
+
 javac -d bin -cp bin src/mjearlb/game/character/Player.java
 
 javac -d bin -cp bin src/mjearlb/game/character/NonPlayableCharacter.java
