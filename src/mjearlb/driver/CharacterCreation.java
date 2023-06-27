@@ -126,7 +126,7 @@ public class CharacterCreation {
 	    } // if
 	} // while
 	try {
-	    writeToFile(player, username);
+	    writeToFile(player, username, false);
 	} catch (FileAlreadyExistsException e) {
 	    System.out.println("Error: username is already used!");
 	    saveCharacter(); 
