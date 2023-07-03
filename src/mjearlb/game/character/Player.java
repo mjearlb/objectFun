@@ -3,6 +3,8 @@ package mjearlb.game.character;
 import mjearlb.game.character.Character;
 import mjearlb.game.containers.Inventory;
 import mjearlb.game.items.Item;
+import mjearlb.game.containers.Inventory;
+import mjearlb.game.items.Equipment;
 
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.*;
@@ -12,8 +14,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
-import mjearlb.game.containers.Inventory;
-import mjearlb.game.items.Equipment;
+
 import java.lang.reflect.Type;
 
 /**
@@ -85,6 +86,12 @@ public class Player extends Character {
         this.defense = defense;
     } //setDefense
 
+    /**
+     * Reads data from a JSON-formatted String and serializes it into a
+     * {@code Player} object. 
+     *
+     * @param json the json which the {@code Player} data is read from.
+     */
     public static Player fromJson(String json) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeserializer());
