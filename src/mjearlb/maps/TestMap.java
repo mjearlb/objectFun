@@ -53,6 +53,7 @@ public class TestMap extends Map {
             npcs[i] = new NonPlayableCharacter(5, false);
             npcs[i].setName(names[i]);
         } // for
+	npcs[1].setSells(false); 
 	npcs[2].setSells(true);
 	npcs[2].inventory.add(claireSword); 
     } // initNPCs
@@ -64,7 +65,8 @@ public class TestMap extends Map {
         this.map[1][7] = '1';
 	this.map[3][3] = '2';
 	this.map[0][0] = 'C';
-	this.map[7][7] = 'k'; 
+	this.map[7][7] = 'k';
+	this.map[7][8] = 'k'; 
 
 	// walled off area
 	this.map[4][4] = 'W';
@@ -150,7 +152,11 @@ public class TestMap extends Map {
 	    } // else/if
             break;
 	case 'k':
-	    interactNPC(npcs[2]);
+	     if (currCoords[0] == 7 && currCoords[1] == 8) {
+		 interactNPC(npcs[1]); 
+	     } else if (currCoords[0] == 7 && currCoords[1] == 7) {
+		interactNPC(npcs[2]);
+	    } // if/else
 	    break;
         default:
             System.out.println("There is nothing for you to interact with.");

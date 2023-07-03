@@ -21,6 +21,7 @@ public class CharacterCreation {
     private static String classChoice;
 
     public static void main(String[] args) {
+	System.out.println("\n\n\n"); 
         player = new Player();
         cont = true;
         System.out.println("Hello! Welcome to the character creation "

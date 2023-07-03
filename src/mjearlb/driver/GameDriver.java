@@ -4,7 +4,8 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
 import java.lang.reflect.Type;
 import java.io.FileReader;
-import java.io.IOException; 
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -129,16 +130,10 @@ public class GameDriver {
 	try {
 	    System.out.println("What is the unique username of your character?");
 	    userName = keyboard.nextLine();
-
 	    String fileName = "resources/" + userName + ".txt";
 	    String json = readPlayerData(fileName);
-
 	    player = Player.fromJson(json);
-
-	    //player = readFromFile(userName, Player.class, Inventory.class, Item.class);
-	} catch (Exception e) {
-	    System.err.println(e);
-	    e.printStackTrace(); 
+	} catch (FileNotFoundException e) {
 	    System.out.println("Error: file not found.\nPlease enter username again: ");
 	    loadPlayer();
 	} // catch
@@ -148,9 +143,11 @@ public class GameDriver {
      * Reads player data from a JSON stored in a .txt file in the
      * /resources directory.
      *
-     * @param fileName the name of the file. 
+     * @param fileName the name of the file.
+     * @throws FileNotFoundException if the .txt file cannot be found in the
+     * resources directory. 
      */
-    private static String readPlayerData(String fileName) {
+    private static String readPlayerData(String fileName) throws FileNotFoundException {
 	try {
 	    FileReader fileReader = new FileReader(fileName);
 	    int character;
@@ -162,9 +159,8 @@ public class GameDriver {
 	    
 	    return content;
 	} catch (IOException e) {
-	    e.printStackTrace(); 
+	    throw new FileNotFoundException("Error: Cannot find resources/" + fileName + ".txt"); 
 	} // try/catch
-	return null; 
     } // readPlayerData
 
     /**
