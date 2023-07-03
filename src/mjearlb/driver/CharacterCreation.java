@@ -15,7 +15,6 @@ public class CharacterCreation {
 
     private static Scanner keyboard = new Scanner(System.in);
     private static boolean cont;
-    private static int id;
     private static String name;
     private static String choice;
     private static Player player;
@@ -23,8 +22,6 @@ public class CharacterCreation {
 
     public static void main(String[] args) {
         player = new Player();
-        player.setId(1983);
-
         cont = true;
         System.out.println("Hello! Welcome to the character creation "
             + "menu! Please select from the options below:");
@@ -129,7 +126,7 @@ public class CharacterCreation {
 	    } // if
 	} // while
 	try {
-	    writeToFile(player, username);
+	    writeToFile(player, username, false);
 	} catch (FileAlreadyExistsException e) {
 	    System.out.println("Error: username is already used!");
 	    saveCharacter(); 

@@ -40,11 +40,19 @@ echo emacs src/mjearlb/game/items/wearables/Wearable.java
 
 echo
 
-echo emacs src/mjearlb/game/Inventory.java
+echo emacs src/mjearlb/game/items/wearables/Helmet.java
 
 echo
 
-echo emacs src/mjearlb/game/Chest.java
+echo emacs src/mjearlb/game/containers/Container.java
+
+echo
+
+echo emacs src/mjearlb/game/containers/Inventory.java
+
+echo
+
+echo emacs src/mjearlb/game/containers/Chest.java
 
 echo
 

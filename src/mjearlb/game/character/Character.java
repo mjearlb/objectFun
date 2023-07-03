@@ -1,49 +1,38 @@
 package mjearlb.game.character;
 
 import mjearlb.game.character.Stats;
+import mjearlb.game.items.Item;
+import mjearlb.game.containers.Inventory; 
 
 /**
  * Basic character outline.
  */
 public abstract class Character {
 
-    private int id;
     protected boolean isPlayer;
-    private String name;
+    public String name;
     public String charClass;
     public Stats stats;
-    public int money; 
+    public int money;
+    public int defense; 
+    public Inventory<Item> inventory; 
 
     /**
      * Creates the character object.
+     *
+     * @param size the size of the Character's inventory. 
      */
-    public Character() {
-	this.money = 0; 
+    public Character(int size) {
+	this.money = 0;
+	this.inventory = new Inventory<Item>(10);
+	this.defense = 0; // defense is decided by the clothing that the character is wearing
     } // Character
-
+    
     @Override
     public String toString() {
-        return "Name: " + name + "\nID: " + id + "\nisPlayer: " + isPlayer + "\nClass: " + charClass
-            + "\n" + stats;
+        return "Name: " + name + "\nMoney: " + money + "\nClass: " + charClass
+            + "\n" + stats + "\nInventory: " + inventory;
     } // toString
-
-    /**
-     * Allows access to the id of the character.
-     *
-     * @return the id of the character.
-     */
-    public int getId() {
-        return this.id;
-    } // getId
-
-    /**
-     * Sets the value of the character id.
-     *
-     * @param id the id number of the character being created.
-     */
-    public void setId(int id) {
-        this.id = id;
-    } // setId
 
     /**
      * Allows game to see whether character is a player or not.

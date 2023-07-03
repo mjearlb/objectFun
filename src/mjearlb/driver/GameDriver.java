@@ -1,15 +1,26 @@
 package mjearlb.driver;
 
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import java.io.FileReader;
+import java.io.IOException; 
+
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.nio.file.FileAlreadyExistsException;
 
 import mjearlb.maps.TestMap;
 import mjearlb.maps.Map;
 import mjearlb.game.character.Player;
+import mjearlb.game.containers.Inventory;
+import mjearlb.game.items.Item; 
 import mjearlb.game.character.Stats;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.writer.ReadFromFile;
 import static mjearlb.writer.ReadFromFile.readFromFile;
+import mjearlb.writer.WriteToFile;
+import static mjearlb.writer.WriteToFile.writeToFile; 
 
 /**
  * Main driver program for the game.
@@ -21,6 +32,7 @@ public class GameDriver {
     private static String choice;
     public static TestMap map;
     private static Player player;
+    private static String userName; 
 
     public static void main(String[] args) {
         playing = true;
@@ -69,6 +81,15 @@ public class GameDriver {
 	    break;
 	case "int":
 	    interact();
+	    break;
+	case "me":
+	    System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
+	    break;
+	case "equip":
+	    equipItem(); 
+	    break;
+	case "save":
+	    saveCharacter();
 	    break; 
         default:
             System.out.println("Error: not a valid option");
@@ -89,9 +110,10 @@ public class GameDriver {
 		loadPlayer();
 		choosePlayer = false; 
             } else if (playerChoice.equalsIgnoreCase("default")) {
+		userName = "gr8Icc"; 
                 player = new Player();
-                player.setName("Dave");
-		player.setClass("human"); 
+                player.setName("Icculus");
+		player.setClass("wizard"); 
                 choosePlayer = false;
             } else {
                 System.out.println("Error: invalid choice!");
@@ -106,13 +128,44 @@ public class GameDriver {
     private static void loadPlayer() {
 	try {
 	    System.out.println("What is the unique username of your character?");
-	    String playerName = keyboard.nextLine();
-	    player = readFromFile(playerName, Player.class);
-	} catch (FileNotFoundException e) {
+	    userName = keyboard.nextLine();
+
+	    String fileName = "resources/" + userName + ".txt";
+	    String json = readPlayerData(fileName);
+
+	    player = Player.fromJson(json);
+
+	    //player = readFromFile(userName, Player.class, Inventory.class, Item.class);
+	} catch (Exception e) {
+	    System.err.println(e);
+	    e.printStackTrace(); 
 	    System.out.println("Error: file not found.\nPlease enter username again: ");
 	    loadPlayer();
 	} // catch
     } // loadPlayer
+
+    /**
+     * Reads player data from a JSON stored in a .txt file in the
+     * /resources directory.
+     *
+     * @param fileName the name of the file. 
+     */
+    private static String readPlayerData(String fileName) {
+	try {
+	    FileReader fileReader = new FileReader(fileName);
+	    int character;
+	    String content = "";
+	    
+	    while ((character = fileReader.read()) != -1) {
+		content += (char) character;
+	    } // while
+	    
+	    return content;
+	} catch (IOException e) {
+	    e.printStackTrace(); 
+	} // try/catch
+	return null; 
+    } // readPlayerData
 
     /**
      * Prints the options available to the character.
@@ -125,7 +178,10 @@ public class GameDriver {
             "d: moves right one square\n" +
             "map: displays the map\n" +
 	    "inv: investigate the current tile\n" + 
-	    "int: interact with the current tile");
+	    "int: interact with the current tile\n" +
+	    "me: displays player's inventory and equipment\n" +
+	    "equip: equip a piece of equipment from current inventory\n" +
+	    "save: save your current character");
     } // printHelp
 
     /**
@@ -179,7 +235,30 @@ public class GameDriver {
      * Allows players to interact with their current tile on the map. 
      */
     private static void interact() {
-	map.tileInteract(player.stats); 
+	map.tileInteract(player); 
     } // interact
+
+    /**
+     * Allows player to 'equip' an item from their inventory.
+     * Must be a {@code Wearable} {@code Item}. Adds {@code Item}
+     * to their {@code equipment} 
+     */
+    private static void equipItem() {
+	System.out.println("What item would you like to equip?");
+	System.out.println("Inventory:\n" + player.inventory + "\nEquipment: \n" + player.equipment);
+	String item = keyboard.nextLine();
+	player.equipWearable(map.rustyHelm); 
+    } // equipItem
+
+    /**
+     * 
+     */
+    private static void saveCharacter() {
+	try {
+	    writeToFile(player, userName, true);
+	} catch (FileAlreadyExistsException e) {
+	    System.err.println(e);
+	} // try/catch
+    } // saveCharacter
 
 } // GameDriver

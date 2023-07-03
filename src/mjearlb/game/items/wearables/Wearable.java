@@ -17,4 +17,9 @@ public abstract class Wearable extends Item {
 	this.defense = defense; 
     } // Wearable
 
+    @Override
+    public String toString() {
+	return this.name + " - Defense: " + this.defense; 
+    } // toString
+
 } // Wearable

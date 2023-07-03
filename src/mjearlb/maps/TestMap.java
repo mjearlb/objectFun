@@ -1,11 +1,16 @@
 package mjearlb.maps;
 
+import java.util.Scanner;
+
 import mjearlb.maps.Map;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.game.character.Stats;
 import mjearlb.game.items.Item; 
-import mjearlb.game.Chest;
-import mjearlb.game.items.Sword; 
+import mjearlb.game.containers.Chest;
+import mjearlb.game.items.Sword;
+import mjearlb.game.character.Player;
+import mjearlb.game.containers.Inventory;
+import mjearlb.game.items.wearables.Helmet; 
 
 /**
  * This is an example map implementation.
@@ -17,18 +22,21 @@ public class TestMap extends Map {
     // where each int on map refers to the NPC. Will need to make the
     // hashmap public access global variable.
 
+    private static Scanner keyboard = new Scanner(System.in);
     NonPlayableCharacter[] npcs;
     Chest<Item>[] chests;
-    Sword dullSword; 
-
+    public Sword dullSword;
+    public Helmet rustyHelm;
+    public Sword claireSword; 
+    
     /**
      * This constructs the TestMap object and makes it.
      */
     public TestMap() {
         super(10, 10); // should set it to an empty map of size (rows, cols)
-        initNPCs();
 	initItems(); 
 	initChests();
+	initNPCs(); 
         buildMap();
         hashNPCs();
         this.currCoords = new int[] {1,1};
@@ -40,23 +48,23 @@ public class TestMap extends Map {
      */
     private void initNPCs() {
         String[] names = {"Tim", "Nathan", "Claire", "Kevin", "Supa Mike"};
-        int id = 5000;
         npcs = new NonPlayableCharacter[5];
         for (int i = 0; i < 5; i++) {
-            npcs[i] = new NonPlayableCharacter();
+            npcs[i] = new NonPlayableCharacter(5, false);
             npcs[i].setName(names[i]);
-            npcs[i].setId(id);
-            id++;
         } // for
-
+	npcs[2].setSells(true);
+	npcs[2].inventory.add(claireSword); 
     } // initNPCs
 
     /**
      * This populates the map.
      */
     private void buildMap() {
-        this.map[1][1] = '1';
-	this.map[3][3] = '0' - 1;
+        this.map[1][7] = '1';
+	this.map[3][3] = '2';
+	this.map[0][0] = 'C';
+	this.map[7][7] = 'k'; 
 
 	// walled off area
 	this.map[4][4] = 'W';
@@ -85,7 +93,7 @@ public class TestMap extends Map {
      */
     public void investMap(Stats stats) {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
-	case '/':
+	case '1':
 	    if (stats.perception > 10) {
 		System.out.println("You can see that there is a secret door in here");
 		this.map[currCoords[0]][currCoords[1]] = 'D'; 
@@ -93,7 +101,7 @@ public class TestMap extends Map {
 		System.out.println("There is nothing of note in this area");
 	    } // if/else
 	    break;
-	case '1':
+	case '2':
 	    if (stats.perception > 10) {
 		System.out.println("There is a chest here");
 		this.map[currCoords[0]][currCoords[1]] = 'C';
@@ -107,6 +115,9 @@ public class TestMap extends Map {
 	case 'C':
 	    System.out.println("There is a chest here.");	
             break;
+	case 'k':
+	    System.out.println("There is a person standing here. They seem friendly enough to approach."); 
+	    break; 
 	default:
 	    System.out.println("There is nothing of note in this area"); 
 	} // switch	
@@ -115,16 +126,32 @@ public class TestMap extends Map {
     /**
      * Interacts with the current tile.
      *
-     * @param stats the stats of the player.
+     * @param player the player.
      */ 
-    public void tileInteract(Stats stats) {
+    public void tileInteract(Player player) {
 	switch (this.map[currCoords[0]][currCoords[1]]) {
 	case 'D':
             System.out.println("You enter the door.");
             break;
         case 'C':
-            System.out.println("You open the chest.\n" + chests[0]);
+	    /* NOTE: This is to be changed as it is a very bad way to distinguish between the chests.
+	       TODO: decide if Hashmap would work for this?
+	     */ 
+	    if (currCoords[0] == 3 && currCoords[1] == 3) {
+		System.out.println("You open the chest.\n" + chests[0] + "\nTake an item? (y/n)");
+		if (keyboard.nextLine().equals("y")) {
+		    takeFromChest(player, chests[0], dullSword); 
+		} // if
+	    } else if (currCoords[0] == 0 && currCoords[1] == 0) {
+		System.out.println("You open the chest.\n" + chests[1] + "\nTake an item? (y/n)");
+		if (keyboard.nextLine().equals("y")) {
+                    takeFromChest(player, chests[1], rustyHelm);
+                } // if
+	    } // else/if
             break;
+	case 'k':
+	    interactNPC(npcs[2]);
+	    break;
         default:
             System.out.println("There is nothing for you to interact with.");
         } // switch
@@ -134,18 +161,46 @@ public class TestMap extends Map {
      * Initializes the in-game items. 
      */
     private void initItems() {
-	dullSword = new Sword("Sword of Dullness", 4); 
+	dullSword = new Sword("Sword of Dullness", 4);
+	claireSword = new Sword("Claire's Sword", 6); 
+	rustyHelm = new Helmet("Helmet of Rustiness", 2); 
     } // initItems
 
     /**
      * Initializes the chests used in the game. 
      */
     private void initChests() {
-	chests = new Chest[1];
+	chests = new Chest[2];
 	for (int i = 0; i < chests.length; i++) {
 	    chests[i] = new Chest<Item>(10);
-	    chests[i].add(dullSword); 
-	} // for	
+	} // for
+	chests[0].add(dullSword);
+	chests[1].add(rustyHelm); 
     } // initChests
+
+    /**
+     * Allows user to move an {@code item} from a chest to                                                                                                                                                 
+     * their inventory.                                                                                                                                                                                    
+     *                                                                                                                                                                                                     
+     * @param player the player.
+     * @param chest the chest being accessed. 
+     * @param item the item.
+     */
+    public void takeFromChest(Player player, Chest chest, Item item) {
+        chest.remove(item);
+	player.inventory.add(item); 
+    } // takeFromChest
+
+    /**
+     * Allows the user to interact with an NPC character.
+     *
+     * @param npc the NPC being interacted with.
+     */
+    public void interactNPC(NonPlayableCharacter npc) {
+	System.out.println("Hi! I am " + npc.name + "!");
+	if (npc.sells == true) {
+	    System.out.println("I have the following wares to sell:\n" + npc.inventory); 
+	} // if
+    } // interactNPC
 
 } // TestMap

@@ -1,17 +1,14 @@
-- POSSIBLY place Inventory and Chest classes into directory called containers?
-    ---> POSSIBLY make Chest extend Inventory? OR make both extend new class
-         called containers. 
-
 - create key for deciding what objects are what (which are passable, which are not)
 
-- Create classes for the wearables (helmet, chestplate, pants, boots, weapon)
+- Create classes for the wearables (chestplate, pants, boots, weapon)
     ---> ALSO: make Weapon extend wearable(?)
+    ---> MAYBE: Change Wearable to not be abstract, add ID's to each
+    	 type of Wearable (helmet, chestplate, pants, boots, weapon)
+	 instead. Player can only equip one of each type at a time. 
 
 - Create class for money(?) 
     ---> Maybe just make that an int in the Character or Player class
 
-- store equiment in equipment slots (helmet, chestplate, pants, boots, weapon) - takes
-out of inventory and puts in equip-storage. 
 
 - create new map for different room 
     ---> ALSO: figure out how to make doors work
@@ -19,3 +16,11 @@ out of inventory and puts in equip-storage.
 - Flesh out some NPC's
 
 - learn how to use a HashMap to map NPC's to different tile markers
+
+- Find better way to work with chests. need to allow player to select based on index
+       within the chest. Maybe hash coords to the
+       ---> Maybe create custom coords object with only r and c to keep track instead
+       	    of working with currentCoords so much (annoying)
+
+- Find better way to equip items. Also needs to allow player to select based on index
+       within their inventory.
