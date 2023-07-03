@@ -1,5 +1,11 @@
 package mjearlb.driver;
 
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import java.io.FileReader;
+import java.io.IOException; 
+
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.nio.file.FileAlreadyExistsException;
@@ -7,6 +13,8 @@ import java.nio.file.FileAlreadyExistsException;
 import mjearlb.maps.TestMap;
 import mjearlb.maps.Map;
 import mjearlb.game.character.Player;
+import mjearlb.game.containers.Inventory;
+import mjearlb.game.items.Item; 
 import mjearlb.game.character.Stats;
 import mjearlb.game.character.NonPlayableCharacter;
 import mjearlb.writer.ReadFromFile;
@@ -121,12 +129,43 @@ public class GameDriver {
 	try {
 	    System.out.println("What is the unique username of your character?");
 	    userName = keyboard.nextLine();
-	    player = readFromFile(userName, Player.class);
-	} catch (FileNotFoundException e) {
+
+	    String fileName = "resources/" + userName + ".txt";
+	    String json = readPlayerData(fileName);
+
+	    player = Player.fromJson(json);
+
+	    //player = readFromFile(userName, Player.class, Inventory.class, Item.class);
+	} catch (Exception e) {
+	    System.err.println(e);
+	    e.printStackTrace(); 
 	    System.out.println("Error: file not found.\nPlease enter username again: ");
 	    loadPlayer();
 	} // catch
     } // loadPlayer
+
+    /**
+     * Reads player data from a JSON stored in a .txt file in the
+     * /resources directory.
+     *
+     * @param fileName the name of the file. 
+     */
+    private static String readPlayerData(String fileName) {
+	try {
+	    FileReader fileReader = new FileReader(fileName);
+	    int character;
+	    String content = "";
+	    
+	    while ((character = fileReader.read()) != -1) {
+		content += (char) character;
+	    } // while
+	    
+	    return content;
+	} catch (IOException e) {
+	    e.printStackTrace(); 
+	} // try/catch
+	return null; 
+    } // readPlayerData
 
     /**
      * Prints the options available to the character.
