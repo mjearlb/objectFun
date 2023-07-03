@@ -10,7 +10,7 @@ import mjearlb.game.containers.Chest;
 import mjearlb.game.items.Sword;
 import mjearlb.game.character.Player;
 import mjearlb.game.containers.Inventory;
-import mjearlb.game.items.wearables.Helmet; 
+import mjearlb.game.items.Equipment; 
 
 /**
  * This is an example map implementation.
@@ -26,7 +26,7 @@ public class TestMap extends Map {
     NonPlayableCharacter[] npcs;
     Chest<Item>[] chests;
     public Sword dullSword;
-    public Helmet rustyHelm;
+    public Equipment rustyHelm;
     public Sword claireSword; 
     
     /**
@@ -163,7 +163,7 @@ public class TestMap extends Map {
     private void initItems() {
 	dullSword = new Sword("Sword of Dullness", 4);
 	claireSword = new Sword("Claire's Sword", 6); 
-	rustyHelm = new Helmet("Helmet of Rustiness", 2); 
+	rustyHelm = new Equipment("Helmet of Rustiness", 2, 0); 
     } // initItems
 
     /**
