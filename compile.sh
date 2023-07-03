@@ -12,9 +12,7 @@ javac -d bin -cp bin src/mjearlb/game/containers/Inventory.java
 
 javac -d bin -cp bin src/mjearlb/game/character/Character.java
 
-javac -d bin -cp bin src/mjearlb/game/items/wearables/Wearable.java
-
-javac -d bin -cp bin src/mjearlb/game/items/wearables/Helmet.java
+javac -d bin -cp bin src/mjearlb/game/items/Equipment.java
 
 javac -d bin -cp bin:lib/gson-2.10.1.jar src/mjearlb/game/character/Player.java
 

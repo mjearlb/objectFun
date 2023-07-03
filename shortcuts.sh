@@ -36,11 +36,7 @@ echo emacs src/mjearlb/game/items/Sword.java
 
 echo
 
-echo emacs src/mjearlb/game/items/wearables/Wearable.java
-
-echo
-
-echo emacs src/mjearlb/game/items/wearables/Helmet.java
+echo emacs src/mjearlb/game/items/Equipment.java
 
 echo
 

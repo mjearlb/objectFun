@@ -1,13 +1,11 @@
 package mjearlb.game.character;
 
 import mjearlb.game.character.Character;
-import mjearlb.game.items.wearables.Wearable;
 import mjearlb.game.containers.Inventory;
 import mjearlb.game.items.Item;
-import com.google.gson.Gson;
+
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.*;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -15,7 +13,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 import mjearlb.game.containers.Inventory;
-import mjearlb.game.items.wearables.Wearable;
+import mjearlb.game.items.Equipment;
 import java.lang.reflect.Type;
 
 /**
@@ -23,7 +21,7 @@ import java.lang.reflect.Type;
  */
 public class Player extends Character {
 
-    public Inventory<Wearable> equipment;
+    public Inventory<Equipment> equipment;
     
     /**
      * Creates an instance of the Player character.
@@ -32,7 +30,7 @@ public class Player extends Character {
     public Player() {
 	super(10); 
 	this.isPlayer = true;
-	this.equipment = new Inventory<Wearable>(4); 
+	this.equipment = new Inventory<Equipment>(4); 
     } // Player
 
     /**
@@ -40,17 +38,17 @@ public class Player extends Character {
      *
      * @param item the {@code item} to be equipped. 
      */
-    public void equipWearable(Wearable item) {
+    public void equipWearable(Equipment item) {
 	this.inventory.remove(item);
 	this.equipment.add(item); 
     } // wearItem
 
     /**
-     * Allows {@code Player} to unequip a {@code Wearable} {@code Item}.
+     * Allows {@code Player} to unequip a {@code Equipment} {@code Item}.
      *
      * @param item the {@code item} to be unequipped. 
      */
-    public void unequipWearable(Wearable item) {
+    public void unequipWearable(Equipment item) {
 	this.equipment.remove(item);
 	this.inventory.add(item);
     } // unwearItem
@@ -80,7 +78,7 @@ public class Player extends Character {
 
     /**
      * Sets the defense value of the player.
-     *
+     * 
      * @param defense the defense value
      */
     public void setDefense(int defense) {
@@ -115,8 +113,8 @@ public class Player extends Character {
 	    JsonArray equipmentArray = jsonObject.get("equipment").getAsJsonArray();
 	    player.equipment = new Inventory<>(4);
 	    for (JsonElement element : equipmentArray) {
-		Wearable wearable = context.deserialize(element, Wearable.class);
-		player.equipment.add(wearable);
+		Equipment equipment = context.deserialize(element, Equipment.class);
+		player.equipment.add(equipment);
 	    } // for 
 
 	    // Deserialize 'inventory' field
