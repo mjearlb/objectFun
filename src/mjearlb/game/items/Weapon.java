@@ -17,4 +17,9 @@ public abstract class Weapon extends Item {
 	this.damage = damage; 
     } // Weapon
 
+    @Override
+    public void toString() {
+	return this.name + " - Damage: " + this.damage; 
+    } // toString
+
 } // Weapon
