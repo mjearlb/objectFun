@@ -24,6 +24,10 @@ echo emacs src/mjearlb/maps/TestMap.java
 
 echo
 
+echo emacs src/mjearlb/maps/Coordinates.java
+
+echo
+
 echo emacs src/mjearlb/game/items/Item.java
 
 echo
