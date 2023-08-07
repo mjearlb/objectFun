@@ -6,6 +6,8 @@ javac -d bin src/mjearlb/game/character/Stats.java
 
 javac -d bin src/mjearlb/game/items/Item.java
 
+javac -d bin src/mjearlb/maps/Coordinates.java
+
 javac -d bin -cp bin src/mjearlb/game/containers/Container.java
 
 javac -d bin -cp bin src/mjearlb/game/containers/Inventory.java
