@@ -1,8 +1,9 @@
 package mjearlb.game.items;
 
 import mjearlb.game.items.Item;
+import mjearlb.game.items.Equipment;
 
-public abstract class Weapon extends Item {
+public abstract class Weapon extends Equipment {
 
     int damage; 
 
@@ -13,12 +14,12 @@ public abstract class Weapon extends Item {
      * @param damage the amount of damage the {@code Weapon} does. 
      */
     public Weapon(String name, int damage) {
-	super(name);
+	super(name, 0, 4);
 	this.damage = damage; 
     } // Weapon
 
     @Override
-    public void toString() {
+    public String toString() {
 	return this.name + " - Damage: " + this.damage; 
     } // toString
 
